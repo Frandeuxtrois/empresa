@@ -84,6 +84,22 @@ document.addEventListener('DOMContentLoaded', () => {
         },
     });
 
+    // 5b. SWIPER PLANES
+    new Swiper('.planesSwiper', {
+        slidesPerView: 'auto',
+        spaceBetween: 20,
+        grabCursor: true,
+        slidesOffsetAfter: 56,
+        navigation: {
+            nextEl: '.planesSwiper .swiper-button-next',
+            prevEl: '.planesSwiper .swiper-button-prev',
+        },
+        pagination: {
+            el: '.planesSwiper .swiper-pagination',
+            clickable: true,
+        },
+    });
+
     // 6. SWIPERS INTERNOS (FOTOS DENTRO DE CARDS)
     const innerSwipers = document.querySelectorAll('.myImagesSwiper');
     innerSwipers.forEach(container => {
