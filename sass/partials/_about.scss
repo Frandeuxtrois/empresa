@@ -1,0 +1,26 @@
+/* ======== NOSOTROS ======== */
+#nosotros {
+    background-color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .container {
+        max-width: 800px;
+        max-height: 100%;
+        text-align: center;
+    }
+
+    h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, #1a1a1a, #888);
+        border-radius: 2px;
+    }
+}

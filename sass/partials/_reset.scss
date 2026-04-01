@@ -1,0 +1,28 @@
+/* ======== ESTILOS GENERALES Y RESET ======== */
+:root {
+    --header-height: 80px; /* Ajusta según la altura real de tu header */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    line-height: 1.7;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 0;
+}

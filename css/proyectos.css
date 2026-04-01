@@ -1,0 +1,170 @@
+/* ======== PROJECTS SECTION ======== */
+#proyectos {
+    padding: 0;
+    background-color: #fafafa;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#proyectos h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+#proyectos h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #000;
+    margin: 0.8rem auto 0;
+}
+
+/* Global Section Separator Line */
+section:not(#hero)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+    z-index: 10;
+}
+
+.swiper.myProyectosSwiper {
+    width: 100%;
+    padding: 2rem 0 3rem;
+    overflow: visible;
+}
+
+.myProyectosSwiper .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background: #000;
+    opacity: 0.2;
+    transition: all 0.3s ease;
+}
+
+.myProyectosSwiper .swiper-pagination-bullet-active {
+    opacity: 1;
+    width: 20px;
+    border-radius: 4px;
+}
+
+.swiper-slide.proyecto-card {
+    width: 85%;
+    max-width: 850px;
+    opacity: 0.2;
+    transition: all 0.6s ease;
+    transform: scale(0.85);
+    display: flex;
+    justify-content: center;
+}
+
+/* FIXED: Overlay/transparency issue */
+.swiper-slide.proyecto-card.swiper-slide-active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.swiper-slide.proyecto-card .proyecto-inner {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    min-height: 350px;
+}
+
+.swiper.myImagesSwiper {
+    width: 55%;
+    height: auto;
+    position: relative;
+}
+
+.swiper.myImagesSwiper .img-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+    background: #eee;
+}
+
+.swiper.myImagesSwiper .swiper-pagination-bullet {
+    width: 6px;
+    height: 6px;
+    background: #fff;
+}
+
+.proyecto-content {
+    width: 45%;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.proyecto-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+    color: #111;
+}
+
+.proyecto-content p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.proyecto-content .btn-text {
+    text-decoration: none;
+    color: #000;
+    font-weight: 700;
+    border-bottom: 2px solid #000;
+    align-self: flex-start;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 1rem;
+    color: #000;
+}
+
+@media (max-width: 900px) {
+    .swiper-slide.proyecto-card {
+        width: 90%;
+    }
+
+    .swiper-slide.proyecto-card .proyecto-inner {
+        flex-direction: column;
+    }
+
+    .swiper-slide.proyecto-card .swiper.myImagesSwiper,
+    .swiper-slide.proyecto-card .proyecto-content {
+        width: 100%;
+    }
+
+    .swiper-slide.proyecto-card .swiper.myImagesSwiper .img-placeholder {
+        min-height: 250px;
+    }
+}

@@ -1,0 +1,52 @@
+
+/* ======== RESPONSIVE PARA CELULARES ======== */
+@media (max-width: 768px) {
+
+     :root {
+        --header-height: 120px; /* Más alto por el layout en columna del header */
+    }
+
+    h1 { 
+        font-size: 2.5rem; 
+    }
+    h2 { 
+        font-size: 2rem; 
+    }
+
+    header {
+        .container {
+            flex-direction: column;
+            padding: 1rem 2rem;
+        }
+
+        ul {
+            margin-top: 1rem;
+            padding: 0;
+
+            li {
+                margin: 0 15px;
+            }
+        }
+    }
+
+    section {
+        padding: 4rem 0;
+    }
+
+    #hero {
+        padding-top: 12rem;
+    }
+
+    .servicios-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .servicio-card {
+        padding: 1.5rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+}

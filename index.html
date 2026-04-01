@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Argentina Webdesign | Diseño Web Profesional</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/proyectos.css">
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/form.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+</head>
+
+<body>
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
+    <!-- ======== HEADER ======== -->
+    <header id="header">
+        <nav class="container">
+            <a href="#" class="logo">
+                <span>ARGENTINA|</span>
+                <span>WEBDESIGN</span>
+            </a>
+            <ul>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#planes">Planes</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="cotizarbt">
+                <a href="#contacto"><button><span class="button-content">COTIZÁ AHORA!</span></button></a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ======== SECCIÓN HERO ======== -->
+        <section id="hero">
+            <!-- Video de fondo: reemplazá "assets/hero-bg.mp4" con tu propio video -->
+            <div class="hero-video-bg">
+                <video autoplay muted loop playsinline>
+                    <source src="assets/hero-bg.mp4" type="video/mp4">
+                </video>
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="container">
+                <h1>
+                    <span class="fade-in-item">Tu negocio merece</span>
+                    <span class="fade-in-item">una web a su altura.</span>
+                </h1>
+                <p class="fade-in-item">Diseño web profesional, sin vueltas. Rápido, elegante y pensado para convertir visitantes en clientes.</p>
+                <a href="#contacto" class="btn fade-in-item">Hablemos de tu proyecto</a>
+            </div>
+        </section>
+
+        <!-- ======== SECCIÓN NOSOTROS ======== -->
+        <section id="nosotros">
+            <div class="container">
+                <h2 class="fade-in">Lo simple es lo que funciona.</h2>
+                <p class="fade-in">Hacer algo complejo es fácil. Lo difícil — y valioso — es quedarse solo con lo que importa. Creemos que un negocio bien comunicado no necesita convencer: solo mostrar. Por eso trabajamos desde la claridad: cada palabra, cada pantalla y cada decisión de diseño tiene un propósito concreto.</p>
+            </div>
+        </section>
+
+        <!-- ======== SECCIÓN PROCESO ======== -->
+        <section id="proceso">
+            <div class="container">
+                <h2 class="fade-in">Cómo trabajamos</h2>
+                <div class="proceso-grid">
+                    <div class="proceso-step fade-in">
+                        <span class="step-number">01</span>
+                        <h3>Diagnóstico</h3>
+                        <p>Entendemos tu negocio, tu público y qué necesitás comunicar antes de escribir una línea de código.</p>
+                    </div>
+                    <div class="proceso-step fade-in">
+                        <span class="step-number">02</span>
+                        <h3>Diseño & Desarrollo</h3>
+                        <p>Creamos una propuesta visual que refleja tu marca, pensada para convertir visitantes en clientes.</p>
+                    </div>
+                    <div class="proceso-step fade-in">
+                        <span class="step-number">03</span>
+                        <h3>Lanzamiento</h3>
+                        <p>Entregamos en tiempo y forma. Con soporte post-lanzamiento incluido, sin sorpresas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== SECCIÓN PROYECTOS (7 CARDS) ======== -->
+        <section id="proyectos">
+            <div class="container">
+                <h2 class="fade-in">Proyectos Destacados</h2>
+                <div class="swiper myProyectosSwiper fade-in">
+                    <div class="swiper-wrapper">
+                        <!-- Card 1 -->
+                        <div class="swiper-slide proyecto-card">
+                            <div class="proyecto-inner">
+                                <div class="swiper myImagesSwiper">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="img-placeholder" style="background: linear-gradient(135deg, #0d1b2a 0%, #1b2d4a 50%, #0a3143 100%);"></div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="img-placeholder" style="background: linear-gradient(135deg, #1b2d4a 0%, #276e90 100%);"></div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                                <div class="proyecto-content">
+                                    <span class="proyecto-tag">Startup</span>
+                                    <h3>TechStart</h3>
+                                    <p>Plataforma web para una startup de tecnología que necesitaba comunicar valor rápido y captar inversores.</p>
+                                    <a href="#" class="btn-text">Ver Proyecto &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="swiper-slide proyecto-card">
+                            <div class="proyecto-inner">
+                                <div class="swiper myImagesSwiper">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="img-placeholder" style="background: linear-gradient(135deg, #1a2e1a 0%, #2d5a2d 50%, #3a7a3a 100%);"></div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="img-placeholder" style="background: linear-gradient(135deg, #2d5a2d 0%, #4a9a4a 100%);"></div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                                <div class="proyecto-content">
+                                    <span class="proyecto-tag">E-commerce</span>
+                                    <h3>EcoMarket</h3>
+                                    <p>Tienda online para una marca de productos sustentables. Diseño limpio enfocado en conversión y confianza.</p>
+                                    <a href="#" class="btn-text">Ver Proyecto &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="swiper-slide proyecto-card">
+                            <div class="proyecto-inner">
+                                <div class="swiper myImagesSwiper">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="img-placeholder" style="background: linear-gradient(135deg, #2a1f14 0%, #4a3520 50%, #6b4c2a 100%);"></div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                                <div class="proyecto-content">
+                                    <span class="proyecto-tag">Portafolio</span>
+                                    <h3>Studio Ark</h3>
+                                    <p>Portafolio digital para un estudio de arquitectura. Minimalismo que deja que las obras hablen.</p>
+                                    <a href="#" class="btn-text">Ver Proyecto &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 4 -->
+                        <div class="swiper-slide proyecto-card">
+                            <div class="proyecto-inner">
+                                <div class="swiper myImagesSwiper">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="img-placeholder" style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #2a2a3e 100%);"></div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                                <div class="proyecto-content">
+                                    <span class="proyecto-tag">App Web</span>
+                                    <h3>Urban Flow</h3>
+                                    <p>Interfaz de una app de movilidad urbana. UI dinámica pensada para uso en movimiento.</p>
+                                    <a href="#" class="btn-text">Ver Proyecto &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 5 -->
+                        <div class="swiper-slide proyecto-card">
+                            <div class="proyecto-inner">
+                                <div class="swiper myImagesSwiper">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="img-placeholder" style="background: linear-gradient(135deg, #1a1a2a 0%, #2a2a4a 50%, #1a3060 100%);"></div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                                <div class="proyecto-content">
+                                    <span class="proyecto-tag">SaaS</span>
+                                    <h3>Nexus CRM</h3>
+                                    <p>Dashboard y landing para un CRM corporativo. Claridad visual en un producto complejo.</p>
+                                    <a href="#" class="btn-text">Ver Proyecto &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 6 -->
+                        <div class="swiper-slide proyecto-card">
+                            <div class="proyecto-inner">
+                                <div class="swiper myImagesSwiper">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="img-placeholder" style="background: linear-gradient(135deg, #1a2a1a 0%, #2a4030 50%, #1a3a25 100%);"></div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                                <div class="proyecto-content">
+                                    <span class="proyecto-tag">Landing</span>
+                                    <h3>Pure Bio</h3>
+                                    <p>Landing page para una línea de cosméticos orgánicos. Confianza y naturalidad en cada detalle.</p>
+                                    <a href="#" class="btn-text">Ver Proyecto &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 7 -->
+                        <div class="swiper-slide proyecto-card">
+                            <div class="proyecto-inner">
+                                <div class="swiper myImagesSwiper">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="img-placeholder" style="background: linear-gradient(135deg, #0a1628 0%, #102040 50%, #0d2a4a 100%);"></div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                                <div class="proyecto-content">
+                                    <span class="proyecto-tag">Corporativo</span>
+                                    <h3>Global Sync</h3>
+                                    <p>Sitio institucional para empresa de logística internacional. Seriedad y escala en cada pantalla.</p>
+                                    <a href="#" class="btn-text">Ver Proyecto &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== SECCIÓN SERVICIOS ======== -->
+        <section id="servicios">
+            <div class="container">
+                <h2 class="fade-in">Nuestros Servicios</h2>
+                <div class="servicios-grid">
+                    <div class="servicio-card fade-in">
+                        <h3>Diseño Web</h3>
+                        <p>Páginas institucionales, e-commerce y catálogos. Analizamos tu negocio y encontramos la mejor forma de mostrarlo al mundo.</p>
+                    </div>
+                    <div class="servicio-card fade-in">
+                        <h3>Hosting</h3>
+                        <p>Servidores en Michigan, USA. Alta disponibilidad, rendimiento extraordinario y el hosting más rápido para tu web en Argentina.</p>
+                    </div>
+                    <div class="servicio-card fade-in">
+                        <h3>Social Media</h3>
+                        <p>Community manager, email marketing y Google Ads. Incrementá tus ventas y clientes con estrategias de impacto real.</p>
+                    </div>
+                    <div class="servicio-card fade-in">
+                        <h3>Dominios</h3>
+                        <p>Registrá tu .COM o .COM.AR de forma rápida y a bajo costo. Consultanos disponibilidad y nos encargamos de todo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== SECCIÓN PLANES ======== -->
+        <section id="planes">
+            <div class="container">
+                <h2 class="fade-in">Planes & Precios</h2>
+                <p class="planes-subtitulo fade-in">Todos los planes incluyen hosting, mails, seguridad y mantenimiento.</p>
+
+                <div class="planes-grid fade-in">
+                    <div class="plan-card">
+                        <span class="plan-nombre">Landing Page</span>
+                        <div class="plan-precio"><span>desde</span><strong>$300.000</strong><span>+ IVA</span></div>
+                        <ul>
+                            <li>Página en 1 pantalla</li>
+                            <li>Info + Videos + Fotos</li>
+                            <li>Botón de WhatsApp</li>
+                            <li>Formulario de consultas</li>
+                            <li>Hosting + mails + seguridad</li>
+                            <li>Mantenimiento web</li>
+                        </ul>
+                        <a href="#contacto" class="btn-plan">Consultar</a>
+                    </div>
+                    <div class="plan-card">
+                        <span class="plan-nombre">Económica</span>
+                        <div class="plan-precio"><span>desde</span><strong>$375.000</strong><span>+ IVA</span></div>
+                        <ul>
+                            <li>Página con 4 pantallas</li>
+                            <li>Servicios y productos</li>
+                            <li>Info + Videos + Fotos</li>
+                            <li>Botón de WhatsApp</li>
+                            <li>Formulario de consultas</li>
+                            <li>Hosting + mails + seguridad</li>
+                        </ul>
+                        <a href="#contacto" class="btn-plan">Consultar</a>
+                    </div>
+                    <div class="plan-card plan-destacado">
+                        <span class="plan-badge">Popular</span>
+                        <span class="plan-nombre">Auto-Gestionable</span>
+                        <div class="plan-precio"><span>desde</span><strong>$450.000</strong><span>+ IVA</span></div>
+                        <ul>
+                            <li>Página con 4 pantallas</li>
+                            <li>Podés editar el contenido</li>
+                            <li>Info + Videos + Fotos</li>
+                            <li>Botón de WhatsApp</li>
+                            <li>Formulario de consultas</li>
+                            <li>Hosting + mails + seguridad</li>
+                        </ul>
+                        <a href="#contacto" class="btn-plan">Consultar</a>
+                    </div>
+                    <div class="plan-card">
+                        <span class="plan-nombre">Ecommerce Básico</span>
+                        <div class="plan-precio"><span>desde</span><strong>$375.000</strong><span>+ IVA</span></div>
+                        <ul>
+                            <li>Página con 3 pantallas</li>
+                            <li>Venta online</li>
+                            <li>Billeteras virtuales</li>
+                            <li>Info + Videos + Fotos</li>
+                            <li>Hosting + mails + seguridad</li>
+                            <li>Botón de WhatsApp</li>
+                        </ul>
+                        <a href="#contacto" class="btn-plan">Consultar</a>
+                    </div>
+                    <div class="plan-card">
+                        <span class="plan-nombre">Ecommerce Full</span>
+                        <div class="plan-precio"><span>desde</span><strong>$600.000</strong><span>+ IVA</span></div>
+                        <ul>
+                            <li>Página con 4 pantallas</li>
+                            <li>Venta online completa</li>
+                            <li>Billeteras virtuales</li>
+                            <li>Envíos por correo</li>
+                            <li>Control de stock</li>
+                            <li>Info + Videos + Fotos</li>
+                        </ul>
+                        <a href="#contacto" class="btn-plan">Consultar</a>
+                    </div>
+                    <div class="plan-card">
+                        <span class="plan-nombre">Personalizada</span>
+                        <div class="plan-precio"><span>desde</span><strong>$525.000</strong><span>+ IVA</span></div>
+                        <ul>
+                            <li>Página con 4 pantallas</li>
+                            <li>Diseño a tu medida</li>
+                            <li>Info + Videos + Fotos</li>
+                            <li>Botón de WhatsApp</li>
+                            <li>Formulario de consultas</li>
+                            <li>Hosting + mails + seguridad</li>
+                        </ul>
+                        <a href="#contacto" class="btn-plan">Consultar</a>
+                    </div>
+                    <div class="plan-card">
+                        <span class="plan-nombre">Inmobiliaria</span>
+                        <div class="plan-precio"><span>desde</span><strong>$800.000</strong><span>+ IVA</span></div>
+                        <ul>
+                            <li>4 pantallas / 4 categorías</li>
+                            <li>Alquiler y venta</li>
+                            <li>Ficha por propiedad</li>
+                            <li>Info + Videos + Fotos</li>
+                            <li>Hosting + mails + seguridad</li>
+                            <li>Botón de WhatsApp</li>
+                        </ul>
+                        <a href="#contacto" class="btn-plan">Consultar</a>
+                    </div>
+                    <div class="plan-card">
+                        <span class="plan-nombre">Turismo</span>
+                        <div class="plan-precio"><span>desde</span><strong>$900.000</strong><span>+ IVA</span></div>
+                        <ul>
+                            <li>Página con 4 pantallas</li>
+                            <li>Reservas online</li>
+                            <li>Cobro online</li>
+                            <li>Calendario de disponibilidad</li>
+                            <li>Info + Videos + Fotos</li>
+                            <li>Hosting + mails + seguridad</li>
+                        </ul>
+                        <a href="#contacto" class="btn-plan">Consultar</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ======== SECCIÓN CONTACTO ======== -->
+        <section id="contacto">
+            <div class="container">
+                <h2 class="fade-in">¿Listo para empezar?</h2>
+                <div class="form-container">
+                    <form id="miFormulario" name="contacto" method="post" data-netlify="true">
+                        <input type="hidden" name="form-name" value="contacto" />
+                        <div class="form-group">
+                            <input type="text" name="nombre" placeholder="Tu nombre / Empresa" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="mensaje" placeholder="Mensaje" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="mainFooter">
+        <div class="container footer-content">
+            <div class="footer-col brand-col">
+                <a href="#" class="logo">
+                    <span>ARGENTINA|</span>
+                    <span>WEBDESIGN</span>
+                </a>
+                <p>Elevamos tu presencia digital con soluciones elegantes y de alto impacto. Diseño web que genera
+                    confianza y resultados.</p>
+                <p class="copyright">© 2025 ARGENTINA WEBDESIGN. Todos los derechos reservados.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Servicios</h4>
+                <ul>
+                    <li><a href="#servicios">Desarrollo Web</a></li>
+                    <li><a href="#servicios">Branding</a></li>
+                    <li><a href="#servicios">SEO & Marketing</a></li>
+                    <li><a href="#servicios">E-commerce</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>Buenos Aires, Argentina</p>
+                <p>✉️ hola@argentinaweb.com</p>
+                <div class="social-links">
+                    <a href="#">IG</a>
+                    <a href="#">LK</a>
+                    <a href="#">FB</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Floating Theme Toggle -->
+    <div class="theme-toggle-container" id="themeToggle">
+        <div class="toggle-thumb"></div>
+    </div>
+
+
+</body>
+
+</html>

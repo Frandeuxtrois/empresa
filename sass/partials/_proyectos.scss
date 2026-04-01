@@ -1,0 +1,147 @@
+/* ======== PROJECTS SECTION ======== */
+#proyectos {
+    padding: 0;
+    background-color: #fafafa;
+    overflow: hidden;
+
+    h2 {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-top: -3rem; // Lo sube un poco para quitar espacio arriba
+        margin-bottom: 1rem; // Reduce espacio con el carrusel
+
+        &::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #000;
+            margin: 0.8rem auto 0;
+        }
+    }
+}
+
+.swiper.myProyectosSwiper {
+    width: 100%;
+    padding: 0 0 3rem;
+    overflow: visible;
+
+    // Estilo de indicadores más pequeños
+    .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+        transition: all 0.3s ease;
+        background: #000;
+
+        &-active {
+            width: 20px;
+            border-radius: 4px;
+        }
+    }
+}
+
+.swiper-slide.proyecto-card {
+    width: 80vw; // Ancho estable para el centrado
+    max-width: 850px;
+    opacity: 0.2;
+    transition: all 0.6s ease;
+    transform: scale(0.85);
+    display: flex;
+    justify-content: center;
+
+    &.swiper-slide-active {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .proyecto-inner {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        min-height: 350px; // Reducido de 400px
+    }
+}
+
+.swiper.myImagesSwiper {
+    width: 55%;
+    height: auto;
+    position: relative;
+
+    .img-placeholder {
+        width: 100%;
+        height: 100%;
+        min-height: 350px; // Reducido de 400px
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: bold;
+        background: #eee;
+    }
+}
+
+.proyecto-content {
+    width: 45%;
+    padding: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h3 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #111;
+    }
+
+    p {
+        font-size: 1.05rem;
+        color: #555;
+        margin-bottom: 2rem;
+    }
+
+    .btn-text {
+        text-decoration: none;
+        color: #000;
+        font-weight: 700;
+        border-bottom: 2px solid #000;
+        align-self: flex-start;
+    }
+}
+
+/* Flechas */
+.swiper-button-next,
+.swiper-button-prev {
+    width: 3rem;
+    height: 3rem;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    &::after {
+        font-size: 1.2rem;
+        color: #000;
+    }
+}
+
+@media (max-width: 900px) {
+    .swiper-slide.proyecto-card {
+        width: 90%;
+
+        .proyecto-inner {
+            flex-direction: column;
+        }
+
+        .swiper.myImagesSwiper,
+        .proyecto-content {
+            width: 100%;
+        }
+
+        .swiper.myImagesSwiper .img-placeholder {
+            min-height: 250px;
+        }
+    }
+}
