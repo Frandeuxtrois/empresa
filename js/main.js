@@ -143,4 +143,62 @@ document.addEventListener('DOMContentLoaded', () => {
             item.style.transform = 'translateY(0)';
         }, 100 + (i * 100));
     });
+
+    // 9. CUSTOM SELECT DROPDOWN
+    document.querySelectorAll('#miFormulario select').forEach(select => {
+        // Ocultar el select original (pero queda en el DOM para el form)
+        select.style.display = 'none';
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'custom-select-wrapper';
+        select.parentNode.insertBefore(wrapper, select);
+        wrapper.appendChild(select);
+
+        const trigger = document.createElement('div');
+        trigger.className = 'custom-select-trigger';
+        trigger.innerHTML = `<span class="cs-label">¿Qué necesitás?</span><svg class="cs-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>`;
+        wrapper.appendChild(trigger);
+
+        const optionsList = document.createElement('div');
+        optionsList.className = 'custom-select-options';
+
+        Array.from(select.options).forEach(opt => {
+            if (opt.disabled) return;
+            const div = document.createElement('div');
+            div.className = 'custom-option';
+            div.textContent = opt.text;
+            div.dataset.value = opt.value;
+
+            div.addEventListener('click', () => {
+                select.value = opt.value;
+                trigger.querySelector('.cs-label').textContent = opt.text;
+                trigger.classList.add('has-value');
+                optionsList.querySelectorAll('.custom-option').forEach(o => o.classList.remove('selected'));
+                div.classList.add('selected');
+                trigger.classList.remove('open');
+                optionsList.classList.remove('open');
+            });
+
+            optionsList.appendChild(div);
+        });
+
+        wrapper.appendChild(optionsList);
+
+        trigger.addEventListener('click', e => {
+            e.stopPropagation();
+            const isOpen = trigger.classList.contains('open');
+            // Cerrar todos los demás
+            document.querySelectorAll('.custom-select-trigger.open').forEach(t => t.classList.remove('open'));
+            document.querySelectorAll('.custom-select-options.open').forEach(o => o.classList.remove('open'));
+            if (!isOpen) {
+                trigger.classList.add('open');
+                optionsList.classList.add('open');
+            }
+        });
+    });
+
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.custom-select-trigger.open').forEach(t => t.classList.remove('open'));
+        document.querySelectorAll('.custom-select-options.open').forEach(o => o.classList.remove('open'));
+    });
 });
