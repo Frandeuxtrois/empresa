@@ -66,23 +66,81 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 5. SWIPER PRINCIPAL (PROYECTOS)
-    const proyectosSwiper = new Swiper('.myProyectosSwiper', {
-        loop: true,
-        centeredSlides: true,
-        slidesPerView: 'auto', // Permite que las tarjetas laterales asomen
-        spaceBetween: 30,
-        speed: 800,
-        grabCursor: true,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.myProyectosSwiper > .swiper-pagination',
-            clickable: true,
-        },
-    });
+    // 5. ACCORDION SLIDER - PROYECTOS
+    (() => {
+        const track = document.getElementById('proyTrack');
+        if (!track) return;
+        const wrap = track.parentElement;
+        const cards = Array.from(track.children);
+        const prev = document.getElementById('proyPrev');
+        const next = document.getElementById('proyNext');
+        const dotsBox = document.getElementById('proyDots');
+
+        const isMobile = () => matchMedia('(max-width:767px)').matches;
+
+        cards.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.className = 'proy-dot';
+            dot.onclick = () => activate(i, true);
+            dotsBox.appendChild(dot);
+        });
+        const dots = Array.from(dotsBox.children);
+
+        let current = 0;
+
+        function center(i) {
+            const card = cards[i];
+            const axis = isMobile() ? 'top' : 'left';
+            const size = isMobile() ? 'clientHeight' : 'clientWidth';
+            const start = isMobile() ? card.offsetTop : card.offsetLeft;
+            wrap.scrollTo({ [axis]: start - (wrap[size] / 2 - card[size] / 2), behavior: 'smooth' });
+        }
+
+        function toggleUI(i) {
+            cards.forEach((c, k) => c.toggleAttribute('active', k === i));
+            dots.forEach((d, k) => d.classList.toggle('active', k === i));
+            prev.disabled = i === 0;
+            next.disabled = i === cards.length - 1;
+        }
+
+        function activate(i, scroll) {
+            if (i === current) return;
+            current = i;
+            toggleUI(i);
+            if (scroll) center(i);
+        }
+
+        function go(step) {
+            activate(Math.min(Math.max(current + step, 0), cards.length - 1), true);
+        }
+
+        prev.onclick = () => go(-1);
+        next.onclick = () => go(1);
+
+        addEventListener('keydown', (e) => {
+            if (['ArrowRight', 'ArrowDown'].includes(e.key)) go(1);
+            if (['ArrowLeft', 'ArrowUp'].includes(e.key)) go(-1);
+        }, { passive: true });
+
+        cards.forEach((card, i) => {
+            card.addEventListener('mouseenter', () => matchMedia('(hover:hover)').matches && activate(i, true));
+            card.addEventListener('click', () => activate(i, true));
+        });
+
+        let sx = 0, sy = 0;
+        track.addEventListener('touchstart', (e) => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+        track.addEventListener('touchend', (e) => {
+            const dx = e.changedTouches[0].clientX - sx;
+            const dy = e.changedTouches[0].clientY - sy;
+            if (isMobile() ? Math.abs(dy) > 60 : Math.abs(dx) > 60)
+                go((isMobile() ? dy : dx) > 0 ? -1 : 1);
+        }, { passive: true });
+
+        if (isMobile()) dotsBox.hidden = true;
+        addEventListener('resize', () => center(current));
+        toggleUI(0);
+        center(0);
+    })();
 
     // 5b. SWIPER PLANES
     new Swiper('.planesSwiper', {
@@ -98,20 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
             el: '.planesSwiper .swiper-pagination',
             clickable: true,
         },
-    });
-
-    // 6. SWIPERS INTERNOS (FOTOS DENTRO DE CARDS)
-    const innerSwipers = document.querySelectorAll('.myImagesSwiper');
-    innerSwipers.forEach(container => {
-        new Swiper(container, {
-            loop: true,
-            nested: true, // Evita que al deslizar la foto se mueva el carrusel grande
-            resistanceRatio: 0,
-            pagination: {
-                el: container.querySelector('.swiper-pagination'),
-                clickable: true,
-            },
-        });
     });
 
     // 7. DARK MODE TOGGLE

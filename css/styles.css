@@ -695,7 +695,7 @@ footer .footer-col .copyright {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 16px;
+  border-radius: 6px;
   padding: 2rem;
   text-align: center;
   transition: all 0.35s cubic-bezier(0.2, 1, 0.3, 1);
@@ -1032,7 +1032,7 @@ body.dark-mode .faq-item p {
 }
 .plan-card {
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
+  border-radius: 6px;
   padding: 1.75rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -1227,11 +1227,14 @@ body.dark-mode .plan-badge {
 }
 #proyectos h2::after {
   content: "";
-  display: block;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 60px;
-  height: 4px;
-  background: #000;
-  margin: 0.8rem auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1a1a1a, #888);
+  border-radius: 2px;
 }
 
 .swiper.myProyectosSwiper {
@@ -1379,7 +1382,7 @@ body.dark-mode .plan-badge {
   padding: 14px 16px;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
+  border-radius: 4px;
   color: rgba(255, 255, 255, 0.5);
   font-size: 15px;
   font-family: inherit;
@@ -1464,7 +1467,7 @@ body.dark-mode .plan-badge {
 .form-container {
   background: var(--bg-form-card);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
+  border-radius: 6px;
   padding: 40px;
   width: 100%;
   box-shadow: 0 20px 40px rgba(10, 49, 67, 0.15);
@@ -1483,7 +1486,7 @@ textarea {
   padding: 14px 16px;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
+  border-radius: 4px;
   color: #fff;
   font-size: 15px;
   font-family: inherit;
@@ -1516,7 +1519,7 @@ textarea {
   color: #000;
   border: none;
   padding: 14px;
-  border-radius: 8px;
+  border-radius: 4px;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
@@ -1686,6 +1689,17 @@ body.dark-mode footer .footer-col .social-links a:hover {
 body.dark-mode {
   /* Section Separators */
 }
+
+/* Underlines de títulos en dark mode */
+body.dark-mode #servicios h2::after,
+body.dark-mode #proceso h2::after,
+body.dark-mode #planes h2::after,
+body.dark-mode #faq h2::after,
+body.dark-mode #contacto h2::after,
+body.dark-mode #nosotros h2::after {
+  background: linear-gradient(90deg, #555, #888);
+}
+
 body.dark-mode section:not(#hero)::before {
   background: linear-gradient(90deg, transparent, rgba(238, 69, 64, 0.2), transparent) !important;
 }

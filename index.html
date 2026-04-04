@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Argentina Webdesign | Diseño Web Profesional</title>
+    <link rel="icon" type="image/png" href="favicon.png">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,9 +20,10 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/main.js" defer></script>
     <script src="js/form.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
 </head>
 
 <body>
@@ -293,157 +295,93 @@
             </div>
         </section>
 
-        <!-- ======== SECCIÓN PROYECTOS (7 CARDS) ======== -->
+        <!-- ======== SECCIÓN PROYECTOS ======== -->
         <section id="proyectos">
-            <div class="container">
-                <h2 class="fade-in">Proyectos Destacados</h2>
-                <div class="swiper myProyectosSwiper fade-in">
-                    <div class="swiper-wrapper">
-                        <!-- Card 1 -->
-                        <div class="swiper-slide proyecto-card">
-                            <div class="proyecto-inner">
-                                <div class="swiper myImagesSwiper">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <div class="img-placeholder" style="background: linear-gradient(135deg, #0d1b2a 0%, #1b2d4a 50%, #0a3143 100%);"></div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="img-placeholder" style="background: linear-gradient(135deg, #1b2d4a 0%, #276e90 100%);"></div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-pagination"></div>
-                                </div>
-                                <div class="proyecto-content">
-                                    <span class="proyecto-tag">Startup</span>
-                                    <h3>TechStart</h3>
-                                    <p>Plataforma web para una startup de tecnología que necesitaba comunicar valor rápido y captar inversores.</p>
-                                    <a href="#" class="btn-text">Ver Proyecto &rarr;</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 2 -->
-                        <div class="swiper-slide proyecto-card">
-                            <div class="proyecto-inner">
-                                <div class="swiper myImagesSwiper">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <div class="img-placeholder" style="background: linear-gradient(135deg, #1a2e1a 0%, #2d5a2d 50%, #3a7a3a 100%);"></div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="img-placeholder" style="background: linear-gradient(135deg, #2d5a2d 0%, #4a9a4a 100%);"></div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-pagination"></div>
-                                </div>
-                                <div class="proyecto-content">
-                                    <span class="proyecto-tag">E-commerce</span>
-                                    <h3>EcoMarket</h3>
-                                    <p>Tienda online para una marca de productos sustentables. Diseño limpio enfocado en conversión y confianza.</p>
-                                    <a href="#" class="btn-text">Ver Proyecto &rarr;</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 3 -->
-                        <div class="swiper-slide proyecto-card">
-                            <div class="proyecto-inner">
-                                <div class="swiper myImagesSwiper">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <div class="img-placeholder" style="background: linear-gradient(135deg, #2a1f14 0%, #4a3520 50%, #6b4c2a 100%);"></div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-pagination"></div>
-                                </div>
-                                <div class="proyecto-content">
-                                    <span class="proyecto-tag">Portafolio</span>
-                                    <h3>Studio Ark</h3>
-                                    <p>Portafolio digital para un estudio de arquitectura. Minimalismo que deja que las obras hablen.</p>
-                                    <a href="#" class="btn-text">Ver Proyecto &rarr;</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 4 -->
-                        <div class="swiper-slide proyecto-card">
-                            <div class="proyecto-inner">
-                                <div class="swiper myImagesSwiper">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <div class="img-placeholder" style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #2a2a3e 100%);"></div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-pagination"></div>
-                                </div>
-                                <div class="proyecto-content">
-                                    <span class="proyecto-tag">App Web</span>
-                                    <h3>Urban Flow</h3>
-                                    <p>Interfaz de una app de movilidad urbana. UI dinámica pensada para uso en movimiento.</p>
-                                    <a href="#" class="btn-text">Ver Proyecto &rarr;</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 5 -->
-                        <div class="swiper-slide proyecto-card">
-                            <div class="proyecto-inner">
-                                <div class="swiper myImagesSwiper">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <div class="img-placeholder" style="background: linear-gradient(135deg, #1a1a2a 0%, #2a2a4a 50%, #1a3060 100%);"></div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-pagination"></div>
-                                </div>
-                                <div class="proyecto-content">
-                                    <span class="proyecto-tag">SaaS</span>
-                                    <h3>Nexus CRM</h3>
-                                    <p>Dashboard y landing para un CRM corporativo. Claridad visual en un producto complejo.</p>
-                                    <a href="#" class="btn-text">Ver Proyecto &rarr;</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 6 -->
-                        <div class="swiper-slide proyecto-card">
-                            <div class="proyecto-inner">
-                                <div class="swiper myImagesSwiper">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <div class="img-placeholder" style="background: linear-gradient(135deg, #1a2a1a 0%, #2a4030 50%, #1a3a25 100%);"></div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-pagination"></div>
-                                </div>
-                                <div class="proyecto-content">
-                                    <span class="proyecto-tag">Landing</span>
-                                    <h3>Pure Bio</h3>
-                                    <p>Landing page para una línea de cosméticos orgánicos. Confianza y naturalidad en cada detalle.</p>
-                                    <a href="#" class="btn-text">Ver Proyecto &rarr;</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card 7 -->
-                        <div class="swiper-slide proyecto-card">
-                            <div class="proyecto-inner">
-                                <div class="swiper myImagesSwiper">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <div class="img-placeholder" style="background: linear-gradient(135deg, #0a1628 0%, #102040 50%, #0d2a4a 100%);"></div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-pagination"></div>
-                                </div>
-                                <div class="proyecto-content">
-                                    <span class="proyecto-tag">Corporativo</span>
-                                    <h3>Global Sync</h3>
-                                    <p>Sitio institucional para empresa de logística internacional. Seriedad y escala en cada pantalla.</p>
-                                    <a href="#" class="btn-text">Ver Proyecto &rarr;</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-pagination"></div>
+            <div class="proy-head fade-in">
+                <h2>Proyectos Destacados</h2>
+                <div class="proy-controls">
+                    <button id="proyPrev" class="proy-nav-btn" aria-label="Anterior">‹</button>
+                    <button id="proyNext" class="proy-nav-btn" aria-label="Siguiente">›</button>
                 </div>
             </div>
+
+            <div class="proy-slider">
+                <div class="proy-track" id="proyTrack">
+
+                    <article class="proy-card" active>
+                        <img class="proy-card__bg" src="assets/luvet.jpg" alt="ArteBA">
+                        <div class="proy-card__content">
+                            <span class="proy-tag">Cultura</span>
+                            <h3 class="proy-card__title">ArteBA</h3>
+                            <p class="proy-card__desc">Portal para una galería de arte contemporáneo. Elegancia visual que acompaña la obra.</p>
+                            <a href="#" class="proy-card__btn">Ver Proyecto →</a>
+                        </div>
+                    </article>
+
+                    <article class="proy-card">
+                        <img class="proy-card__bg" src="assets/cafedonato.jpg" alt="Raíz Cocina">
+                        <div class="proy-card__content">
+                            <span class="proy-tag">Gastronomía</span>
+                            <h3 class="proy-card__title">Raíz Cocina</h3>
+                            <p class="proy-card__desc">Sitio para restaurante local con reservas online. Sabor en cada pixel.</p>
+                            <a href="#" class="proy-card__btn">Ver Proyecto →</a>
+                        </div>
+                    </article>
+
+                    <article class="proy-card">
+                        <img class="proy-card__bg" src="assets/fran.jpg" alt="FlexFit Studio">
+                        <div class="proy-card__content">
+                            <span class="proy-tag">Fitness</span>
+                            <h3 class="proy-card__title">FlexFit Studio</h3>
+                            <p class="proy-card__desc">Plataforma de clases online para un gimnasio boutique. Energía y precisión.</p>
+                            <a href="#" class="proy-card__btn">Ver Proyecto →</a>
+                        </div>
+                    </article>
+
+                    <article class="proy-card">
+                        <img class="proy-card__bg" src="assets/osapm.JPG" alt="Casas del Río">
+                        <div class="proy-card__content">
+                            <span class="proy-tag">Inmobiliaria</span>
+                            <h3 class="proy-card__title">Casas del Río</h3>
+                            <p class="proy-card__desc">Web inmobiliaria con catálogo y filtros avanzados. Confianza desde el primer scroll.</p>
+                            <a href="#" class="proy-card__btn">Ver Proyecto →</a>
+                        </div>
+                    </article>
+
+                    <article class="proy-card">
+                        <div class="proy-card__bg" style="background: linear-gradient(135deg, #0a1628 0%, #102040 50%, #0d2a4a 100%);"></div>
+                        <div class="proy-card__content">
+                            <span class="proy-tag">SaaS</span>
+                            <h3 class="proy-card__title">CloudDesk</h3>
+                            <p class="proy-card__desc">Dashboard y landing para plataforma SaaS de productividad. Claridad y conversión.</p>
+                            <a href="#" class="proy-card__btn">Ver Proyecto →</a>
+                        </div>
+                    </article>
+
+                    <article class="proy-card">
+                        <div class="proy-card__bg" style="background: linear-gradient(135deg, #1a2a1a 0%, #2a4030 50%, #1a3a25 100%);"></div>
+                        <div class="proy-card__content">
+                            <span class="proy-tag">Landing</span>
+                            <h3 class="proy-card__title">Pure Bio</h3>
+                            <p class="proy-card__desc">Landing page para una línea de cosméticos orgánicos. Confianza y naturalidad.</p>
+                            <a href="#" class="proy-card__btn">Ver Proyecto →</a>
+                        </div>
+                    </article>
+
+                    <article class="proy-card">
+                        <div class="proy-card__bg" style="background: linear-gradient(135deg, #1a1000 0%, #3a2800 50%, #2a1d00 100%);"></div>
+                        <div class="proy-card__content">
+                            <span class="proy-tag">Corporativo</span>
+                            <h3 class="proy-card__title">Global Sync</h3>
+                            <p class="proy-card__desc">Sitio institucional para empresa de logística internacional. Seriedad y escala.</p>
+                            <a href="#" class="proy-card__btn">Ver Proyecto →</a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+
+            <div class="proy-dots" id="proyDots"></div>
         </section>
 
         <!-- ======== SECCIÓN CONTACTO ======== -->
@@ -452,8 +390,7 @@
                 <h2 class="fade-in">Contanos tu proyecto</h2>
                 <p class="contacto-subtitulo fade-in">Sin compromisos. Te respondemos en menos de 24 horas.</p>
                 <div class="form-container">
-                    <form id="miFormulario" name="contacto" method="post" data-netlify="true">
-                        <input type="hidden" name="form-name" value="contacto" />
+                    <form id="miFormulario">
                         <div class="form-row">
                             <div class="form-group">
                                 <input type="text" name="nombre" placeholder="¿Cómo te llamás?" required>
@@ -486,6 +423,9 @@
                 </div>
             </div>
         </section>
+
+
+
 
         <!-- ======== SECCIÓN FAQ ======== -->
         <section id="faq">
