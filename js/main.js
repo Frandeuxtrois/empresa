@@ -7,7 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 2. SCROLL INDICATOR & HEADER
-    window.addEventListener('scroll', () => {
+    const header = document.getElementById('header');
+
+    function updateHeader() {
         const scrollTop = window.scrollY;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
         const scrolled = (scrollTop / docHeight) * 100;
@@ -15,11 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const indicator = document.getElementById('scrollIndicator');
         if (indicator) indicator.style.width = scrolled + '%';
 
-        const header = document.getElementById('header');
         if (header) {
             scrollTop > 100 ? header.classList.add('scrolled') : header.classList.remove('scrolled');
         }
-    });
+    }
+
+    window.addEventListener('scroll', updateHeader);
+    updateHeader(); // Check on page load too
 
     // 3. FADE IN OBSERVER (Para secciones)
     const observer = new IntersectionObserver((entries) => {
@@ -63,8 +67,36 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) target.scrollIntoView({ behavior: 'smooth' });
+            // Cerrar menú si está abierto
+            closeMenu();
         });
     });
+
+    // 4b. HAMBURGER MENU
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    const navOverlay = document.getElementById('navOverlay');
+
+    function openMenu() {
+        hamburger.classList.add('open');
+        navMenu.classList.add('open');
+        navOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        hamburger.classList.remove('open');
+        navMenu.classList.remove('open');
+        navOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.contains('open') ? closeMenu() : openMenu();
+        });
+    }
+    if (navOverlay) navOverlay.addEventListener('click', closeMenu);
 
     // 5. ACCORDION SLIDER - PROYECTOS
     (() => {

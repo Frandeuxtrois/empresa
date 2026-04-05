@@ -32,6 +32,8 @@
 <body>
     <!-- Scroll Indicator -->
     <div class="scroll-indicator" id="scrollIndicator"></div>
+    <!-- Nav overlay -->
+    <div class="nav-overlay" id="navOverlay"></div>
 
     <!-- ======== HEADER ======== -->
     <header id="header">
@@ -40,7 +42,7 @@
                 <span>ARGENTINA|</span>
                 <span>WEBDESIGN</span>
             </a>
-            <ul>
+            <ul id="navMenu">
                 <li><a href="#proyectos">Proyectos</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#planes">Planes</a></li>
@@ -49,6 +51,11 @@
             <div class="cotizarbt">
                 <a href="#contacto"><button><span class="button-content">COTIZÁ AHORA!</span></button></a>
             </div>
+            <button class="hamburger" id="hamburger" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </header>
 
