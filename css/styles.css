@@ -781,22 +781,21 @@ body.dark-mode .hamburger span {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     gap: 1rem;
-    padding-bottom: 1rem;
-    margin: 0 -1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 1rem 5vw 1.5rem;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    box-sizing: border-box;
   }
   #servicios .servicios-grid::-webkit-scrollbar { display: none; }
   #servicios .servicio-card {
-    flex: 0 0 78vw;
-    max-width: 300px;
-    scroll-snap-align: start;
+    flex: 0 0 82vw;
+    max-width: 320px;
+    scroll-snap-align: center;
     padding: 1.4rem;
-  }
-  #servicios .servicio-card:hover {
-    transform: none;
+    transform: none !important;
+    transition: none;
   }
 
   /* Proceso */
@@ -804,7 +803,14 @@ body.dark-mode .hamburger span {
   .step-number { font-size: 3rem; }
 
   /* Planes carrusel */
-  .planesSwiper .swiper-slide { width: 260px; }
+  .planesSwiper {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    overflow: hidden !important;
+  }
+  .planesSwiper .swiper-slide { width: 82vw; max-width: 300px; }
+  .planesSwiper .swiper-button-next,
+  .planesSwiper .swiper-button-prev { display: none; }
   .plan-card-header { padding: 1.2rem 1.2rem 1rem; }
   .plan-card-body { padding: 1rem 1.2rem 1.2rem; }
   .plan-precio strong { font-size: 1.4rem; }
@@ -832,7 +838,7 @@ body.dark-mode .hamburger span {
   h2 { font-size: 1.4rem; }
   #hero h1 { font-size: 1.55rem; }
   #hero p { font-size: 0.95rem; }
-  .planesSwiper .swiper-slide { width: 240px; }
+  .planesSwiper .swiper-slide { width: 78vw; max-width: 260px; }
   .proy-head { padding: 0 12px 2rem; }
 }
 /* ======== SERVICIOS ======== */
