@@ -667,15 +667,17 @@ footer .footer-col .copyright {
 body.dark-mode .hamburger span {
   background: var(--text-primary);
 }
-body.dark-mode #navMenu {
-  background: rgba(10, 10, 10, 0.97);
-}
-body.dark-mode #navMenu li a {
-  color: rgba(255, 255, 255, 0.7);
-  border-bottom-color: rgba(255, 255, 255, 0.05);
-}
-body.dark-mode #navMenu li a:hover {
-  color: var(--accent);
+@media (max-width: 768px) {
+  body.dark-mode #navMenu {
+    background: rgba(10, 10, 10, 0.97);
+  }
+  body.dark-mode #navMenu li a {
+    color: rgba(255, 255, 255, 0.7);
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+  }
+  body.dark-mode #navMenu li a:hover {
+    color: var(--accent);
+  }
 }
 
 /* Animación items del menú */
