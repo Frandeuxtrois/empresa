@@ -864,7 +864,7 @@ body.dark-mode .hamburger span {
 #servicios .servicios-grid {
   gap: 1.2rem;
   margin-top: 2rem;
-  align-items: start;
+  align-items: stretch;
 }
 #servicios .servicio-card {
   background: rgba(10, 49, 67, 0.82);
@@ -1354,6 +1354,13 @@ body.dark-mode .faq-item p {
   flex-shrink: 0;
 }
 
+.plan-ideal-tag {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+}
+
 .btn-plan {
   display: block;
   text-align: center;
@@ -1416,6 +1423,15 @@ body.dark-mode .btn-plan {
 body.dark-mode .btn-plan:hover {
   background: var(--btn-primary);
   color: #fff;
+}
+body.dark-mode .plan-destacado .btn-plan {
+  background: var(--btn-primary);
+  border-color: var(--btn-primary);
+  color: #fff;
+}
+body.dark-mode .plan-destacado .btn-plan:hover {
+  background: #c0392b;
+  border-color: #c0392b;
 }
 body.dark-mode .plan-badge {
   background: var(--btn-primary);
