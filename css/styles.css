@@ -795,6 +795,9 @@ body.dark-mode .hamburger span {
     scroll-snap-align: start;
     padding: 1.4rem;
   }
+  #servicios .servicio-card:hover {
+    transform: none;
+  }
 
   /* Proceso */
   .proceso-grid { grid-template-columns: 1fr; }
@@ -802,7 +805,6 @@ body.dark-mode .hamburger span {
 
   /* Planes carrusel */
   .planesSwiper .swiper-slide { width: 260px; }
-  .planesSwiper .swiper-wrapper { padding: 0 1rem; }
   .plan-card-header { padding: 1.2rem 1.2rem 1rem; }
   .plan-card-body { padding: 1rem 1.2rem 1.2rem; }
   .plan-precio strong { font-size: 1.4rem; }
@@ -1193,7 +1195,6 @@ body.dark-mode .faq-item p {
   height: auto;
 }
 .planesSwiper .swiper-wrapper {
-  padding: 0 3.5rem;
   align-items: stretch;
 }
 .planesSwiper .swiper-pagination-bullet {
