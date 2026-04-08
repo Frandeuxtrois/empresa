@@ -1,91 +1,78 @@
-.logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    line-height: 1;
-}
-
-h1,
-h2,
-h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-}
-
-h2 {
-    font-size: 2.5rem;
-    position: relative;
-}
-
-h3 {
-    font-size: 1.5rem;
-}
-
-p {
-    margin-bottom: 1rem;
-}
-
-a {
-    text-decoration: none;
-    color: #1a1a1a;
-}
-
-a {
-    text-decoration: none;
-    color: #1a1a1a;
-}
-
-/* ======== SISTEMA DE ANIMACIÓN EN CASCADA ======== */
-
-/* PASO 1: Oculta los elementos que se van a animar. */
-#hero .fade-in-item {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-/* PASO 2: Muestra los elementos cuando JavaScript añade la clase .visible. */
-#hero .fade-in-item.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-/* ======== SECCIÓN HERO (CORREGIDA Y ESTILIZADA) ======== */
-
+/* ======== HERO ======== */
 #hero {
-    min-height: 100vh;
+    height: 100vh;
     padding-top: var(--header-height);
     text-align: center;
     position: relative;
+    background-color: var(--bg-primary);
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--bg-primary);
+
+    .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+        margin: 0 auto 2rem auto;
+
+        span { display: block; }
+    }
+
+    h1 span,
+    p { color: #ffffff; }
+
+    p {
+        font-size: 1.5rem;
+        max-width: 600px;
+        margin: 0 auto 2rem auto;
+    }
+
+    .btn {
+        border-color: rgba(255, 255, 255, 0.85);
+        color: #ffffff;
+
+        &::before { background: rgba(255, 255, 255, 0.15); }
+
+        &:hover {
+            color: #ffffff;
+            border-color: #ffffff;
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+        }
+    }
+
+    // Fade-in items
+    .fade-in-item {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+        &.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 }
 
-#hero .container {
-    position: relative;
-    z-index: 1;
+/* ======== VIDEO DE FONDO HERO ======== */
+.hero-video-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+
+    video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
 
-/* REGLA AÑADIDA: Define el tamaño grande y el margen para el título principal. */
-#hero h1 {
-    font-size: 3.5rem;
-    /* <-- AJUSTA ESTE VALOR A TU GUSTO (ej: 4rem) */
-    margin: 0 auto 2rem auto;
-}
-
-/* REGLA AÑADIDA: Asegura que cada <span> ocupe una línea separada. */
-#hero h1 span {
-    display: block;
-}
-
-#hero p {
-    font-size: 1.5rem;
-    max-width: 600px;
-    margin: 0 auto 2rem auto;
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 49, 67, 0.58);
 }

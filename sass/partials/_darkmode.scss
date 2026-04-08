@@ -1,29 +1,8 @@
-/* ======== PREMIUM DARK MODE SYSTEM - BLACK & RED ACCENTS (RESTORED) ======== */
-
-:root {
-    // Elegant Light Mode Palette: #276E90, #CECFC9, #0A3143, #EFEFEF
-    --bg-primary: #EFEFEF; // Warm White Base
-    --bg-secondary: #CECFC9; // Stone/Gray Detail
-    --bg-header: rgba(10, 49, 67, 0.75); // Increased transparency (0.85 -> 0.75)
-    --bg-header-scrolled: rgba(10, 49, 67, 0.85); // Increased transparency (0.95 -> 0.85)
-    --header-text: #ffffff;
-    --text-primary: #0A3143;
-    --text-secondary: #276E90;
-    --border-color: rgba(10, 49, 67, 0.1);
-    --card-bg: #ffffff;
-    --input-bg: rgba(206, 207, 201, 0.2);
-    --btn-primary: #276E90;
-    --btn-text: #ffffff;
-    --accent: #0A3143;
-    --bg-contact: #fafafa; // Clean off-white background
-    --bg-form-card: rgba(10, 49, 67, 0.75); // Matching header transparency
-    --text-on-contact: #0A3143;
-}
+/* ======== DARK MODE ======== */
 
 body.dark-mode {
-    // Refined Black Dominant Palette
-    --bg-primary: #0a0a0a; // Deep Pure Black
-    --bg-secondary: #141414; // Very Dark Gray
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #141414;
     --bg-header: rgba(10, 10, 10, 0.85);
     --bg-header-scrolled: rgba(10, 10, 10, 0.95);
     --header-text: #f5f5f5;
@@ -42,156 +21,182 @@ body.dark-mode {
     background-color: var(--bg-primary);
     color: var(--text-primary);
 
-    // Ultra-subtle tech gradients
     #hero {
         background: radial-gradient(circle at 20% 80%, rgba(238, 69, 64, 0.03) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(199, 44, 65, 0.02) 0%, transparent 50%),
-            var(--bg-primary);
+                    radial-gradient(circle at 80% 20%, rgba(199, 44, 65, 0.02) 0%, transparent 50%),
+                    var(--bg-primary);
     }
 
-    #nosotros,
-    #servicios {
-        background: var(--bg-primary);
+    #nosotros, #servicios { background: var(--bg-primary); }
+    #proyectos             { background: var(--bg-secondary); }
+    #proceso               { background-color: var(--bg-secondary); }
+    #faq                   { background-color: var(--bg-secondary); }
+    #planes                { background-color: var(--bg-primary); }
+
+    // Separadores de secciones
+    section:not(#hero)::before {
+        background: linear-gradient(90deg, transparent, rgba(238, 69, 64, 0.2), transparent) !important;
     }
 
-    #proyectos {
-        background: var(--bg-secondary);
+    // Underlines títulos
+    #servicios h2::after,
+    #proceso h2::after,
+    #planes h2::after,
+    #faq h2::after,
+    #contacto h2::after,
+    #nosotros h2::after {
+        background: linear-gradient(90deg, #555, #888);
     }
 
-    .proyecto-inner,
+    // Proceso
+    .step-number { color: rgba(255, 255, 255, 0.05); }
+    .proceso-step h3 { color: var(--text-primary); }
+    .proceso-step p  { color: var(--text-secondary); }
+
+    // FAQ
+    .faq-item {
+        border-bottom-color: rgba(255, 255, 255, 0.06);
+        summary {
+            color: var(--text-primary);
+            &:hover { color: var(--btn-primary); }
+            &::after { color: var(--btn-primary); }
+        }
+        p { color: var(--text-secondary); }
+    }
+
+    // Incluye
+    .incluye-wrapper { border-top-color: rgba(255, 255, 255, 0.06); }
+    .incluye-item { color: var(--text-secondary); &::before { color: var(--btn-primary); } }
+
+    // Servicio cards
     .servicio-card {
         background: var(--card-bg) !important;
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.03) !important;
         border-bottom: 2px solid var(--border-color) !important;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6) !important;
+
+        h3 { color: var(--text-primary); }
+        p  { color: var(--text-secondary); }
     }
 
-    .proyecto-content h3,
-    .servicio-card h3 {
-        color: var(--text-primary);
+    // Planes
+    .plan-card {
+        background: var(--card-bg);
+        border-color: rgba(255, 255, 255, 0.06);
+        &:hover { border-color: var(--btn-primary); }
+    }
+    .plan-destacado { border-color: var(--btn-primary); }
+    .plan-nombre    { color: var(--text-primary); }
+    .plan-precio strong { color: var(--btn-primary); }
+    .plan-card ul li { color: var(--text-secondary); border-bottom-color: rgba(255, 255, 255, 0.04); }
+    .plan-card ul li::before { color: var(--btn-primary); }
+    .plan-badge { background: var(--btn-primary); }
+
+    .btn-plan {
+        border-color: var(--btn-primary);
+        color: var(--btn-primary);
+        &:hover { background: var(--btn-primary); color: #fff; }
     }
 
-    .proyecto-content p,
-    .servicio-card p {
-        color: var(--text-secondary);
+    .plan-destacado .btn-plan {
+        background: var(--btn-primary);
+        border-color: var(--btn-primary);
+        color: #fff;
+        &:hover { background: #c0392b; border-color: #c0392b; }
     }
 
+    // Header
+    header {
+        background-color: transparent !important;
+        border-bottom-color: transparent !important;
+
+        &.scrolled {
+            background-color: var(--bg-header-scrolled);
+            border-bottom-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .logo span,
+        ul li a { color: #fff; }
+
+        ul li a:hover,
+        ul li a.active { background-color: transparent; color: var(--accent); }
+    }
+
+    // Hamburger
+    .hamburger span { background: var(--text-primary); }
+
+    // NavMenu mobile
+    @media (max-width: 768px) {
+        #navMenu {
+            background: rgba(10, 10, 10, 0.97);
+            li a { color: rgba(255, 255, 255, 0.7); border-bottom-color: rgba(255, 255, 255, 0.05); }
+            li a:hover { color: var(--accent); }
+        }
+    }
+
+    // Botones
     .btn {
         border-color: var(--accent);
         color: var(--text-primary);
-
-        &::before {
-            background: var(--accent);
-        }
-
-        &:hover {
-            color: #fff;
-            box-shadow: 0 0 15px rgba(238, 69, 64, 0.2);
-        }
+        &::before { background: var(--accent); }
+        &:hover { color: #fff; box-shadow: 0 0 15px rgba(238, 69, 64, 0.2); }
     }
 
-    header {
-        background-color: var(--bg-header);
-        border-bottom-color: rgba(255, 255, 255, 0.05);
-
-        .logo span,
-        ul li a {
-            color: var(--text-primary);
-        }
-
-        ul li a:hover,
-        ul li a.active {
-            background-color: transparent;
-            color: var(--accent);
-        }
-    }
-
-    input,
-    textarea {
+    // Inputs
+    input, textarea {
         background: #0f0f0f !important;
         border-color: rgba(255, 255, 255, 0.05) !important;
         color: #fff !important;
-
-        &:focus {
-            border-color: var(--accent) !important;
-        }
+        &:focus { border-color: var(--accent) !important; }
     }
 
+    // Custom select
+    .custom-select-trigger {
+        background: #0f0f0f;
+        border-color: rgba(255, 255, 255, 0.05);
+        color: rgba(255, 255, 255, 0.5);
+        &.has-value { color: #fff; }
+        &:hover, &.open { border-color: var(--accent); background: #141414; }
+    }
+    .custom-select-options { background: rgba(15, 15, 15, 0.97); border-color: rgba(255, 255, 255, 0.06); }
+    .custom-option { color: rgba(255, 255, 255, 0.6); }
+    .custom-option:hover { background: rgba(238, 69, 64, 0.1); color: #fff; }
+    .custom-option.selected { background: rgba(238, 69, 64, 0.08); color: #fff; }
+
+    // Footer
     footer {
         background-color: #050505;
         border-top-color: rgba(255, 255, 255, 0.05);
+        h4 { color: var(--text-primary); }
+        p  { color: var(--text-secondary); }
 
-        h4 {
-            color: var(--text-primary);
-        }
-
-        p {
-            color: var(--text-secondary);
-        }
-
-        .footer-bottom {
-            background: #000;
-            border-top-color: rgba(255, 255, 255, 0.03);
-        }
+        .footer-bottom { background: #000; border-top-color: rgba(255, 255, 255, 0.03); }
 
         .footer-col .social-links a {
             background: #111;
             border-color: rgba(255, 255, 255, 0.05);
             color: var(--text-primary);
-
-            &:hover {
-                background: var(--btn-primary);
-                color: #fff;
-            }
+            &:hover { background: var(--btn-primary); color: #fff; }
         }
     }
 
-    /* Section Separators */
-    section:not(#hero)::before {
-        background: linear-gradient(90deg, transparent, rgba(238, 69, 64, 0.2), transparent) !important;
+    // Theme toggle
+    .theme-toggle-container {
+        background: rgba(0, 0, 0, 0.6);
+        border-color: rgba(238, 69, 64, 0.2);
+        .toggle-thumb { transform: translateX(28px); background: #ee4540; box-shadow: 0 0 10px rgba(238, 69, 64, 0.4); }
     }
 }
 
-/* ======== MINIMALIST FLOATING TOGGLE SLIDER ======== */
-.theme-toggle-container {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 9999;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    padding: 6px;
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    width: 60px;
-    height: 32px;
+/* Swiper buttons */
+.swiper-button-next,
+.swiper-button-prev {
+    width: 3rem;
+    height: 3rem;
+    background: #E2E7ED;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
-    .toggle-thumb {
-        width: 20px;
-        height: 20px;
-        background: #1a1a1a;
-        border-radius: 50%;
-        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transform: translateX(0);
-    }
-}
-
-body.dark-mode .theme-toggle-container {
-    background: rgba(0, 0, 0, 0.6);
-    border-color: rgba(238, 69, 64, 0.2);
-
-    .toggle-thumb {
-        transform: translateX(28px);
-        background: #ee4540;
-        box-shadow: 0 0 10px rgba(238, 69, 64, 0.4);
-    }
+    &::after { font-size: 1.2rem; color: #000; }
 }

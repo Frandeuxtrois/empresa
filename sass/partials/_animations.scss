@@ -1,48 +1,39 @@
-
-/* ======== SUBTLE ANIMATIONS ======== */
+/* ======== KEYFRAMES ======== */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+    from { opacity: 0; transform: translateX(-50px); }
+    to   { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes float {
-    0%, 100% { 
-        transform: translateY(0px); 
-    }
-    50% { 
-        transform: translateY(-10px); 
-    }
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-10px); }
 }
 
 @keyframes pulse {
-    0% { 
-        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); 
-    }
-    70% { 
-        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); 
-    }
-    100% { 
-        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); 
-    }
+    0%   { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+    70%  { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
 
+@keyframes pestanitaWobble {
+    0%   { transform: rotate(15deg) scale(1); }
+    25%  { transform: rotate(10deg) scale(1.1); }
+    50%  { transform: rotate(20deg) scale(1.1); }
+    75%  { transform: rotate(12deg) scale(1.1); }
+    100% { transform: rotate(15deg) scale(1); }
+}
+
+@keyframes faqOpen {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ======== FADE IN (IntersectionObserver) ======== */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -52,11 +43,4 @@
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-/* ======== EXTRA TOUCHES ======== */
-/* Selection color */
-::selection {
-    background: #1a1a1a;
-    color: #ffffff;
 }

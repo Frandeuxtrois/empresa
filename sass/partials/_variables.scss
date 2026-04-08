@@ -1,0 +1,22 @@
+/* ======== VARIABLES — CSS CUSTOM PROPERTIES ======== */
+:root {
+    --header-height: 110px;
+
+    // Light Mode
+    --bg-primary: #E2E7ED;
+    --bg-secondary: #D4DBE4;
+    --bg-header: rgba(10, 49, 67, 0.75);
+    --bg-header-scrolled: rgba(10, 49, 67, 0.85);
+    --header-text: #ffffff;
+    --text-primary: #0A3143;
+    --text-secondary: #276E90;
+    --border-color: rgba(10, 49, 67, 0.1);
+    --card-bg: #ffffff;
+    --input-bg: rgba(206, 207, 201, 0.2);
+    --btn-primary: #276E90;
+    --btn-text: #ffffff;
+    --accent: #0A3143;
+    --bg-contact: #fafafa;
+    --bg-form-card: rgba(10, 49, 67, 0.75);
+    --text-on-contact: #0A3143;
+}

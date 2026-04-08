@@ -1,8 +1,8 @@
-/* ======== FOOTER (WORDPRESS STYLE) ======== */
+/* ======== FOOTER ======== */
 footer {
-    background-color: var(--bg-header-scrolled); // Usamos el color más sólido para el footer
+    background-color: var(--bg-header-scrolled);
     border-top: 1px solid var(--border-color);
-    padding: 5rem 0 calc(4rem - 10px);
+    padding: 5rem 0 0;
     color: var(--header-text);
     transition: all 0.3s ease;
 
@@ -10,7 +10,7 @@ footer {
         display: grid;
         grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
         gap: 3rem;
-        padding-bottom: 4rem;
+        padding-bottom: 1.5rem;
     }
 
     .footer-col {
@@ -20,7 +20,7 @@ footer {
             font-weight: 700;
             margin-bottom: 2rem;
             position: relative;
-            color: #ffffff; // Ensure contrast on dark background
+            color: #ffffff;
 
             &::after {
                 content: '';
@@ -36,9 +36,9 @@ footer {
         p {
             font-size: 0.95rem;
             line-height: 1.6;
-            color: rgba(255, 255, 255, 0.82); // Increased contrast for elegance
+            color: rgba(255, 255, 255, 0.82);
             margin-bottom: 1rem;
-            font-weight: 300; // Thinner for more premium feel
+            font-weight: 300;
         }
 
         ul {
@@ -63,11 +63,9 @@ footer {
             }
         }
 
-        &.brand-col {
-            .logo {
-                margin-bottom: 1.5rem;
-                display: inline-flex;
-            }
+        &.brand-col .logo {
+            margin-bottom: 1.5rem;
+            display: inline-flex;
         }
 
         .social-links {
@@ -78,14 +76,14 @@ footer {
             a {
                 width: 35px;
                 height: 35px;
-                background: var(--bg-secondary);
+                background: rgba(10, 49, 67, 0.1);
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 border-radius: 50%;
                 font-size: 0.8rem;
-                color: var(--header-text);
-                border: 1px solid var(--border-color);
+                color: #0A3143;
+                border: 1px solid rgba(10, 49, 67, 0.2);
                 transition: all 0.3s ease;
 
                 &:hover {
@@ -95,51 +93,27 @@ footer {
                 }
             }
         }
+    }
+}
 
-        .copyright {
-            margin-top: 2rem;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.4);
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            padding-top: 1.5rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1.5rem 0;
+    text-align: center;
+
+    .copyright {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.4);
+        letter-spacing: 1px;
+        text-transform: uppercase;
     }
 }
 
 /* Responsive Footer */
 @media (max-width: 992px) {
-    footer .footer-content {
-        grid-template-columns: 1fr 1fr;
-    }
+    footer .footer-content { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 600px) {
-    footer .footer-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-}
-
-@keyframes pestanitaWobble {
-    0% {
-        transform: rotate(15deg) scale(1);
-    }
-
-    25% {
-        transform: rotate(10deg) scale(1.1);
-    }
-
-    50% {
-        transform: rotate(20deg) scale(1.1);
-    }
-
-    75% {
-        transform: rotate(12deg) scale(1.1);
-    }
-
-    100% {
-        transform: rotate(15deg) scale(1);
-    }
+    footer .footer-content { grid-template-columns: 1fr; gap: 2rem; }
 }
