@@ -66,7 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
-            if (target) target.scrollIntoView({ behavior: 'smooth' });
+            if (target) {
+                const headerHeight = header ? header.offsetHeight : 0;
+                window.scrollTo({ top: target.offsetTop - headerHeight, behavior: 'smooth' });
+            }
             // Cerrar menú si está abierto
             closeMenu();
         });
