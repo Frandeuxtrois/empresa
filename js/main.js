@@ -195,6 +195,54 @@ document.addEventListener('DOMContentLoaded', () => {
         },
     });
 
+    // 6. FAQ SMOOTH OPEN/CLOSE
+    document.querySelectorAll('.faq-item').forEach(details => {
+        const summary = details.querySelector('summary');
+        const p = details.querySelector('p');
+        if (!summary || !p) return;
+
+        summary.addEventListener('click', e => {
+            e.preventDefault();
+
+            if (!details.open) {
+                // Abrir
+                details.setAttribute('open', '');
+                const height = p.scrollHeight;
+                p.style.overflow = 'hidden';
+                p.style.maxHeight = '0';
+                p.style.opacity = '0';
+                p.style.transition = 'max-height 0.35s ease, opacity 0.3s ease';
+                requestAnimationFrame(() => {
+                    p.style.maxHeight = height + 'px';
+                    p.style.opacity = '1';
+                });
+                setTimeout(() => {
+                    p.style.maxHeight = '';
+                    p.style.overflow = '';
+                    p.style.transition = '';
+                }, 370);
+            } else {
+                // Cerrar
+                const height = p.scrollHeight;
+                p.style.overflow = 'hidden';
+                p.style.maxHeight = height + 'px';
+                p.style.opacity = '1';
+                p.style.transition = 'max-height 0.35s ease, opacity 0.3s ease';
+                requestAnimationFrame(() => {
+                    p.style.maxHeight = '0';
+                    p.style.opacity = '0';
+                });
+                setTimeout(() => {
+                    details.removeAttribute('open');
+                    p.style.maxHeight = '';
+                    p.style.opacity = '';
+                    p.style.overflow = '';
+                    p.style.transition = '';
+                }, 370);
+            }
+        });
+    });
+
     // 7. DARK MODE TOGGLE
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;

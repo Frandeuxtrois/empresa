@@ -1167,11 +1167,14 @@ body.dark-mode .incluye-item::before {
   font-size: 0.95rem;
   line-height: 1.7;
   margin: 0;
-  animation: faqOpen 0.3s ease;
 }
 @keyframes faqOpen {
-  from { opacity: 0; transform: translateY(-6px); }
+  from { opacity: 0; transform: translateY(-8px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes faqClose {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-8px); }
 }
 body.dark-mode #faq {
   background-color: var(--bg-secondary);
