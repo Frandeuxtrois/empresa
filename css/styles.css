@@ -483,6 +483,9 @@ button:active {
 #contacto .container {
   position: relative;
   z-index: 1;
+  max-width: 1100px;
+  width: 96%;
+  margin-top: -4rem;
 }
 #contacto h2,
 #contacto p {
@@ -490,6 +493,7 @@ button:active {
 }
 #contacto h2 {
   position: relative;
+  margin-bottom: 2rem;
 }
 #contacto h2::after {
   content: "";
@@ -499,7 +503,7 @@ button:active {
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, #ffffff, #888);
+  background: linear-gradient(90deg, #1a1a1a, #888);
   border-radius: 2px;
 }
 #contacto .btn-light {
@@ -565,6 +569,16 @@ footer .footer-col ul li a:hover {
 footer .footer-col.brand-col .logo {
   margin-bottom: 1.5rem;
   display: inline-flex;
+}
+.footer-logo {
+  max-width: 180px;
+  height: auto;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+footer .footer-col.brand-col a:has(.footer-logo) {
+  display: inline-block;
+  width: fit-content;
 }
 footer .footer-col .social-links {
   display: flex;
@@ -818,7 +832,7 @@ body.dark-mode .hamburger span {
   .plan-precio strong { font-size: 1.4rem; }
 
   /* Formulario */
-  .form-container { padding: 24px 18px; }
+  .form-container { padding: 32px 24px; }
 
   /* FAQ */
   .faq-lista { gap: 0; }
@@ -874,7 +888,7 @@ body.dark-mode .hamburger span {
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 6px;
-  padding: 1.4rem 1.6rem;
+  padding: 2.4rem 1.6rem;
   text-align: center;
   transition: all 0.35s cubic-bezier(0.2, 1, 0.3, 1);
   position: relative;
@@ -1002,7 +1016,7 @@ body.dark-mode .proceso-step p {
 /* ======== SERVICIOS: 4 columnas + incluye ======== */
 #servicios {
   height: auto;
-  padding: 4rem 0 3rem;
+  padding: 7rem 0 6rem;
   align-items: flex-start;
 }
 @media (min-width: 769px) {
@@ -1045,6 +1059,7 @@ body.dark-mode .proceso-step p {
   display: flex;
   align-items: center;
   gap: 0.4rem;
+  font-weight: 700;
 }
 .incluye-item::before {
   content: "✓";
@@ -1064,9 +1079,9 @@ body.dark-mode .incluye-item::before {
 
 /* ======== FAQ ======== */
 #faq {
-  background-color: #D4DBE4;
+  background-color: #E2E7ED;
   height: auto;
-  padding: 4rem 0 3rem;
+  padding: 7rem 0 6rem;
   align-items: flex-start;
 }
 #faq h2 {
@@ -1166,7 +1181,7 @@ body.dark-mode .faq-item p {
 #planes {
   background-color: #E2E7ED;
   height: auto;
-  padding: 4rem 0 3rem;
+  padding: 7rem 0 6rem;
   align-items: flex-start;
   overflow-x: hidden;
   overflow-y: visible;
@@ -1205,8 +1220,10 @@ body.dark-mode .faq-item p {
 .planesSwiper .swiper-wrapper {
   align-items: stretch;
 }
-.planesSwiper .swiper-pagination-bullet {
-  background: #0A3143;
+.planesSwiper {
+  --swiper-pagination-color: #0A3143;
+  --swiper-pagination-bullet-inactive-color: #0A3143;
+  --swiper-pagination-bullet-inactive-opacity: 0.35;
 }
 .planesSwiper .plan-card {
   height: 100%;
@@ -1220,7 +1237,7 @@ body.dark-mode .faq-item p {
   flex-direction: column;
   transition: all 0.3s ease;
   position: relative;
-  background: #0A3143;
+  background: rgba(10, 49, 67, 0.82);
   overflow: hidden;
 }
 
@@ -1404,6 +1421,17 @@ body.dark-mode .plan-card:hover {
 }
 body.dark-mode .plan-destacado {
   border-color: var(--btn-primary);
+}
+body.dark-mode .plan-express {
+  border-color: var(--btn-primary);
+  background: var(--card-bg);
+  box-shadow: 0 0 0 1px var(--btn-primary), 0 12px 35px rgba(238, 69, 64, 0.3);
+}
+body.dark-mode .plan-express::before {
+  background: linear-gradient(90deg, var(--btn-primary), #c0392b);
+}
+body.dark-mode .plan-express:hover {
+  box-shadow: 0 0 0 1px var(--btn-primary), 0 16px 40px rgba(238, 69, 64, 0.45);
 }
 body.dark-mode .plan-nombre {
   color: var(--text-primary);
@@ -1616,7 +1644,7 @@ body.dark-mode .plan-badge {
   color: var(--text-on-contact);
   opacity: 0.6;
   font-size: 0.95rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   margin-top: -0.5rem;
 }
 
@@ -1729,6 +1757,7 @@ body.dark-mode .plan-badge {
   backdrop-filter: blur(10px);
 }
 
+
 .form-group {
   margin-bottom: 20px;
 }
@@ -1764,8 +1793,8 @@ input[type=tel]::placeholder {
 }
 
 textarea {
-  min-height: 50px;
-  resize: horizontal;
+  min-height: 160px;
+  resize: vertical;
 }
 
 .submit-btn {
@@ -1805,7 +1834,7 @@ textarea {
   --btn-primary: #276E90;
   --btn-text: #ffffff;
   --accent: #0A3143;
-  --bg-contact: #fafafa;
+  --bg-contact: #D4DBE4;
   --bg-form-card: rgba(10, 49, 67, 0.75);
   --text-on-contact: #0A3143;
 }

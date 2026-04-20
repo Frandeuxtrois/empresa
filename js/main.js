@@ -184,6 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
         grabCursor: true,
         centeredSlides: true,
         centeredSlidesBounds: true,
+        slidesPerGroup: 3,
         navigation: {
             nextEl: '.planesSwiper .swiper-button-next',
             prevEl: '.planesSwiper .swiper-button-prev',
