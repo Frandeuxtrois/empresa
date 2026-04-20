@@ -460,10 +460,11 @@ button:active {
 
 /* ======== CONTACTO ======== */
 #contacto {
-  height: 100vh;
+  height: auto;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  padding: 4rem 0 4rem;
   background: var(--bg-contact);
   color: #fafafa;
   text-align: center;
@@ -939,7 +940,7 @@ body.dark-mode .hamburger span {
 #proceso {
   background-color: #D4DBE4;
   height: auto;
-  padding: 5rem 0;
+  padding: 4rem 0;
 }
 #proceso h2 {
   text-align: center;
@@ -1020,7 +1021,7 @@ body.dark-mode .proceso-step p {
 /* ======== SERVICIOS: 4 columnas + incluye ======== */
 #servicios {
   height: auto;
-  padding: 7rem 0 6rem;
+  padding: 4rem 0 4rem;
   align-items: flex-start;
 }
 @media (min-width: 769px) {
@@ -1085,7 +1086,7 @@ body.dark-mode .incluye-item::before {
 #faq {
   background-color: #E2E7ED;
   height: auto;
-  padding: 7rem 0 6rem;
+  padding: 4rem 0 4rem;
   align-items: flex-start;
 }
 #faq h2 {
@@ -1201,10 +1202,9 @@ body.dark-mode .faq-item p {
 #planes {
   background-color: #E2E7ED;
   height: auto;
-  padding: 7rem 0 6rem;
+  padding: 4rem 0 4rem;
   align-items: flex-start;
-  overflow-x: hidden;
-  overflow-y: visible;
+  overflow: visible;
 }
 #planes h2 {
   text-align: center;
@@ -1219,7 +1219,7 @@ body.dark-mode .faq-item p {
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, #0A3143, #276E90);
+  background: linear-gradient(90deg, #1a1a1a, #888);
   border-radius: 2px;
 }
 .planes-subtitulo {
@@ -1518,15 +1518,14 @@ body.dark-mode .plan-badge {
 
 /* ======== PROJECTS SECTION ======== */
 #proyectos {
-  padding: 0;
+  padding: 4rem 0 4rem;
   background-color: #D4DBE4;
   overflow: hidden;
 }
 #proyectos h2 {
   font-size: 2.5rem;
   text-align: center;
-  margin-top: -3rem;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 #proyectos h2::after {
   content: "";
@@ -1618,17 +1617,17 @@ body.dark-mode .plan-badge {
 /* Flechas */
 .swiper-button-next,
 .swiper-button-prev {
-  width: 3rem;
-  height: 3rem;
-  background: #E2E7ED;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: none;
+  box-shadow: none;
 }
 .swiper-button-next::after,
 .swiper-button-prev::after {
-  font-size: 1.2rem;
-  color: #000;
+  font-size: 1.4rem;
+  color: #0A3143;
+  font-weight: 700;
 }
+.planesSwiper .swiper-button-prev { left: -2rem; }
+.planesSwiper .swiper-button-next { right: -2rem; }
 
 @media (max-width: 900px) {
   .swiper-slide.proyecto-card {
