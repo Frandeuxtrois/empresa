@@ -483,13 +483,17 @@ button:active {
 #contacto .container {
   position: relative;
   z-index: 1;
-  max-width: 1100px;
+  max-width: 800px;
   width: 96%;
-  margin-top: -4rem;
+  margin-top: 0;
 }
 #contacto h2,
 #contacto p {
-  color: var(--text-on-contact);
+  color: #1a1a1a;
+}
+body.dark-mode #contacto h2,
+body.dark-mode #contacto p {
+  color: #ffffff;
 }
 #contacto h2 {
   position: relative;
