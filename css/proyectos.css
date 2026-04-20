@@ -135,8 +135,8 @@
 }
 
 .proy-card[active] .proy-card__bg {
-    height: auto;
-    object-fit: initial;
+    height: 100%;
+    object-fit: cover;
     filter: brightness(0.72);
 }
 
