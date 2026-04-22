@@ -192,6 +192,16 @@ document.addEventListener('DOMContentLoaded', () => {
             el: '.planesSwiper .swiper-pagination',
             clickable: true,
         },
+        breakpoints: {
+            0: {
+                centeredSlides: true,
+                slidesPerGroup: 1,
+            },
+            769: {
+                centeredSlides: false,
+                slidesPerGroup: 2,
+            },
+        },
     });
 
     // 6. FAQ SMOOTH OPEN/CLOSE

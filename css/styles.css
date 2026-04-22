@@ -824,6 +824,7 @@ body.dark-mode .hamburger span {
   .step-number { font-size: 3rem; }
 
   /* Planes carrusel */
+  #planes { overflow-x: hidden; }
   .planesSwiper {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
@@ -2017,9 +2018,13 @@ body.dark-mode section:not(#hero)::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999;
+  z-index: 9998;
   box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .whatsapp-float:hover {
