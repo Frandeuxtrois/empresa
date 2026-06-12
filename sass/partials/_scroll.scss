@@ -17,19 +17,19 @@
     left: 30px;
     width: 52px;
     height: 52px;
-    background: #25D366;
-    color: #fff;
+    background: var(--btn-primary);
+    color: var(--btn-text);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 999;
-    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 
     &:hover {
         transform: scale(1.1);
-        box-shadow: 0 6px 24px rgba(37, 211, 102, 0.55);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 }
 

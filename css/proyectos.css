@@ -251,6 +251,65 @@
     background: #1a5a7a;
 }
 
+/* App móvil — captura de celular como mockup */
+.proy-card--app .proy-card__bg {
+    filter: brightness(0.45) blur(10px);
+    transform: scale(1.15);
+}
+
+.proy-card--app[active] .proy-card__bg {
+    filter: brightness(0.5) blur(10px);
+}
+
+.proy-card__shot {
+    position: absolute;
+    top: 50%;
+    right: 2.5rem;
+    left: auto;
+    transform: translateY(-50%);
+    height: 88%;
+    width: auto;
+    max-width: 34%;
+    object-fit: contain;
+    border-radius: 0.7rem;
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease 0.15s;
+}
+
+.proy-card--app[active] .proy-card__shot {
+    opacity: 1;
+}
+
+.proy-card--app[active] .proy-card__content {
+    justify-content: center;
+    padding: 1.8rem;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.92) 48%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.proy-card--app[active] .proy-card__title,
+.proy-card--app[active] .proy-card__desc,
+.proy-card--app[active] .proy-card__btn {
+    position: static;
+    transform: none;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    max-width: 50%;
+}
+
+.proy-card--app[active] .proy-card__title {
+    font-size: 1.5rem;
+    margin-bottom: 0.7rem;
+}
+
+.proy-card--app[active] .proy-card__desc {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    margin-bottom: 1.1rem;
+}
+
 /* Dots */
 .proy-dots {
     display: flex;
@@ -336,6 +395,18 @@
     }
 
     .proy-card__desc { max-width: 65%; font-size: 0.8rem; }
+
+    .proy-card--app[active] .proy-card__shot {
+        height: auto;
+        width: 42%;
+        max-width: 42%;
+        top: 38%;
+    }
+
+    .proy-card--app[active] .proy-card__title,
+    .proy-card--app[active] .proy-card__desc {
+        max-width: 52%;
+    }
 
     .proy-dots { display: none; }
 }
