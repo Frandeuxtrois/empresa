@@ -12,6 +12,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -20,6 +21,7 @@ body {
   background-color: #E2E7ED;
   color: #1a1a1a;
   overflow-x: hidden;
+  width: 100%;
 }
 
 .container {
@@ -878,6 +880,7 @@ body.dark-mode .hamburger span {
 /* ======== SERVICIOS ======== */
 #servicios {
   background-color: #E2E7ED;
+  height: auto;
 }
 #servicios h2 {
   text-align: center;

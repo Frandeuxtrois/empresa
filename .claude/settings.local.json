@@ -9,7 +9,14 @@
       "Bash(node -e \"try{require.resolve\\('puppeteer'\\);console.log\\('puppeteer OK'\\)}catch\\(e\\){console.log\\('no puppeteer'\\)}\")",
       "Bash(node -e \"try{require.resolve\\('jsdom'\\);console.log\\('jsdom OK'\\)}catch\\(e\\){console.log\\('no jsdom'\\)}\")",
       "Bash(node --check js/main.js)",
-      "Bash(node --check js/form.js)"
+      "Bash(node --check js/form.js)",
+      "Bash(node_modules/.bin/sass sass/styles.scss /tmp/styles_new.css --no-source-map --style=expanded)",
+      "Bash(echo \"=== EXIT: $? ===\")",
+      "Read(//tmp/**)",
+      "Bash(rm -f /tmp/styles_new.css; echo done)"
+    ],
+    "additionalDirectories": [
+      "\\tmp"
     ]
   }
 }

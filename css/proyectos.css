@@ -397,10 +397,11 @@
     .proy-card__desc { max-width: 65%; font-size: 0.8rem; }
 
     .proy-card--app[active] .proy-card__shot {
-        height: auto;
-        width: 42%;
-        max-width: 42%;
-        top: 38%;
+        height: 80%;
+        width: auto;
+        max-width: 40%;
+        top: 50%;
+        right: 1rem;
     }
 
     .proy-card--app[active] .proy-card__title,
