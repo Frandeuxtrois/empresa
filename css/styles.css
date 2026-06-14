@@ -1217,7 +1217,8 @@ body.dark-mode .faq-item p {
   height: auto;
   padding: 4rem 0 4rem;
   align-items: flex-start;
-  overflow: visible;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 #planes h2 {
   text-align: center;

@@ -172,7 +172,7 @@ section {
     height: auto;
     padding: 4rem 0 3rem;
     align-items: flex-start;
-    overflow-x: hidden;
+    overflow-x: clip;
     overflow-y: visible;
 
     h2 {
