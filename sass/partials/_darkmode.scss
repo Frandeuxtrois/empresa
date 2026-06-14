@@ -129,9 +129,9 @@ body.dark-mode {
     // NavMenu mobile
     @media (max-width: 768px) {
         #navMenu {
-            background: rgba(10, 10, 10, 0.97);
-            li a { color: rgba(255, 255, 255, 0.7); border-bottom-color: rgba(255, 255, 255, 0.05); }
-            li a:hover { color: var(--accent); }
+            li { border-bottom-color: rgba(255, 255, 255, 0.05); }
+            li a { color: rgba(255, 255, 255, 0.7); border-bottom-color: transparent; }
+            li a:hover { color: var(--accent); border-bottom-color: var(--accent); }
         }
     }
 

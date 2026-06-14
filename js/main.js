@@ -61,20 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sections.forEach(section => navObserver.observe(section));
 
-    // 4. SMOOTH SCROLL
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const headerHeight = header ? header.offsetHeight : 0;
-                window.scrollTo({ top: target.offsetTop - headerHeight, behavior: 'smooth' });
-            }
-            // Cerrar menú si está abierto
-            closeMenu();
-        });
-    });
-
     // 4b. HAMBURGER MENU
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
@@ -88,9 +74,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function closeMenu() {
-        hamburger.classList.remove('open');
-        navMenu.classList.remove('open');
-        navOverlay.classList.remove('open');
+        if (hamburger) hamburger.classList.remove('open');
+        if (navMenu) navMenu.classList.remove('open');
+        if (navOverlay) navOverlay.classList.remove('open');
         document.body.style.overflow = '';
     }
 
@@ -100,6 +86,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     if (navOverlay) navOverlay.addEventListener('click', closeMenu);
+
+    // 4. SMOOTH SCROLL + cierre del menú
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            closeMenu();
+            // Logo / enlaces vacíos: no intentar hacer scroll a "#"
+            if (!href || href === '#') return;
+            const target = document.querySelector(href);
+            if (!target) return;
+            e.preventDefault();
+            const headerHeight = header ? header.offsetHeight : 0;
+            const top = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+            window.scrollTo({ top, behavior: 'smooth' });
+        });
+    });
 
     // 5. ACCORDION SLIDER - PROYECTOS
     (() => {

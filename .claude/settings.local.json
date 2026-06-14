@@ -4,7 +4,12 @@
       "Bash(ffprobe -v quiet -print_format json -show_streams \"c:/Users/FRANCOT/Desktop/personales/empresa/assets/hero-bg.mp4\")",
       "Bash(powershell -Command \"Get-Item 'c:/Users/FRANCOT/Desktop/personales/empresa/assets/hero-bg.mp4' | Select-Object Name, Length, LastWriteTime\")",
       "Bash(powershell -Command ':*)",
-      "Bash(powershell -File -)"
+      "Bash(powershell -File -)",
+      "Bash(node -e \"try{require.resolve\\('playwright'\\);console.log\\('playwright OK'\\)}catch\\(e\\){console.log\\('no playwright'\\)}\")",
+      "Bash(node -e \"try{require.resolve\\('puppeteer'\\);console.log\\('puppeteer OK'\\)}catch\\(e\\){console.log\\('no puppeteer'\\)}\")",
+      "Bash(node -e \"try{require.resolve\\('jsdom'\\);console.log\\('jsdom OK'\\)}catch\\(e\\){console.log\\('no jsdom'\\)}\")",
+      "Bash(node --check js/main.js)",
+      "Bash(node --check js/form.js)"
     ]
   }
 }
