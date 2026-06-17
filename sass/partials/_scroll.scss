@@ -17,14 +17,17 @@
     left: 30px;
     width: 52px;
     height: 52px;
-    background: var(--btn-primary);
+    background: color-mix(in srgb, var(--btn-primary) 62%, transparent);
     color: var(--btn-text);
     border-radius: 50%;
+    border: 0.25px solid rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 999;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.18);
+    -webkit-backdrop-filter: blur(8px) saturate(150%);
+    backdrop-filter: blur(8px) saturate(150%);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 
     &:hover {

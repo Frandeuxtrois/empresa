@@ -531,6 +531,10 @@ footer .footer-content {
   gap: 3rem;
   padding-bottom: 1.5rem;
 }
+footer .footer-col.fade-in:nth-child(1) { transition-delay: 0s; }
+footer .footer-col.fade-in:nth-child(2) { transition-delay: 0.12s; }
+footer .footer-col.fade-in:nth-child(3) { transition-delay: 0.24s; }
+footer .footer-col.fade-in:nth-child(4) { transition-delay: 0.36s; }
 footer .footer-col h4 {
   font-family: "Montserrat", sans-serif;
   font-size: 1.1rem;
@@ -597,12 +601,13 @@ footer .footer-col.brand-col a:has(.footer-logo) {
   display: inline-block;
   width: fit-content;
 }
-footer .footer-col .social-links {
+footer .social-links {
   display: flex;
   gap: 1rem;
-  margin-top: 1.5rem;
+  justify-content: center;
+  margin: 0 0 1.5rem;
 }
-footer .footer-col .social-links a {
+footer .social-links a {
   width: 35px;
   height: 35px;
   background: rgba(10, 49, 67, 0.1);
@@ -615,14 +620,19 @@ footer .footer-col .social-links a {
   border: 1px solid rgba(10, 49, 67, 0.2);
   transition: all 0.3s ease;
 }
-footer .footer-col .social-links a:hover {
+footer .social-links a:hover {
   background: var(--btn-primary);
   color: #f5f0e8;
   transform: translateY(-3px);
 }
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem;
+}
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 1.5rem 0;
+  padding: 1.5rem 0 2rem;
   text-align: center;
 }
 .footer-bottom .copyright {
@@ -630,6 +640,33 @@ footer .footer-col .social-links a:hover {
   color: rgba(255, 255, 255, 0.4);
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+
+/* Redes con el color original de cada marca (light y dark) */
+footer .footer-bottom .social-links a[aria-label="Instagram"],
+footer .footer-bottom .social-links a[aria-label="Facebook"],
+footer .footer-bottom .social-links a[aria-label="LinkedIn"] {
+  border: none;
+  color: #fff;
+  background-clip: padding-box;
+}
+footer .footer-bottom .social-links a[aria-label="Instagram"],
+footer .footer-bottom .social-links a[aria-label="Instagram"]:hover {
+  background-image: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+}
+footer .footer-bottom .social-links a[aria-label="Facebook"],
+footer .footer-bottom .social-links a[aria-label="Facebook"]:hover {
+  background: #1877f2;
+}
+footer .footer-bottom .social-links a[aria-label="LinkedIn"],
+footer .footer-bottom .social-links a[aria-label="LinkedIn"]:hover {
+  background: #0a66c2;
+}
+footer .footer-bottom .social-links a[aria-label="Instagram"]:hover,
+footer .footer-bottom .social-links a[aria-label="Facebook"]:hover,
+footer .footer-bottom .social-links a[aria-label="LinkedIn"]:hover {
+  color: #fff;
+  filter: brightness(1.12);
 }
 
 /* Responsive Footer */
@@ -2000,16 +2037,15 @@ body.dark-mode footer h4 {
 body.dark-mode footer p {
   color: var(--text-secondary);
 }
-body.dark-mode footer .footer-bottom {
-  background: #000;
-  border-top-color: rgba(255, 255, 255, 0.03);
+body.dark-mode footer .footer-divider {
+  background: rgba(255, 255, 255, 0.08);
 }
-body.dark-mode footer .footer-col .social-links a {
+body.dark-mode footer .social-links a {
   background: #111;
   border-color: rgba(255, 255, 255, 0.05);
   color: var(--text-primary);
 }
-body.dark-mode footer .footer-col .social-links a:hover {
+body.dark-mode footer .social-links a:hover {
   background: var(--btn-primary);
   color: #f5f0e8;
 }
@@ -2038,14 +2074,17 @@ body.dark-mode section:not(#hero)::before {
   left: 30px;
   width: 52px;
   height: 52px;
-  background: var(--btn-primary);
+  background: color-mix(in srgb, var(--btn-primary) 62%, transparent);
   color: var(--btn-text);
   border-radius: 50%;
+  border: 0.25px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9998;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.18);
+  -webkit-backdrop-filter: blur(8px) saturate(150%);
+  backdrop-filter: blur(8px) saturate(150%);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
