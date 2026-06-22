@@ -1448,16 +1448,18 @@ body.dark-mode .faq-item p {
 
 /* Badge */
 .plan-badge {
-  display: inline-block;
-  margin-bottom: 0.6rem;
+  position: absolute;
+  top: 1.4rem;
+  right: 1.4rem;
+  z-index: 2;
   background: rgba(39, 110, 144, 0.2);
   color: #7dc8e8;
-  font-size: 0.62rem;
+  font-size: 0.52rem;
   font-weight: 700;
   font-family: "Montserrat", sans-serif;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  padding: 3px 10px;
+  padding: 2px 8px;
   border-radius: 20px;
   border: 1px solid rgba(39, 110, 144, 0.4);
   white-space: nowrap;
