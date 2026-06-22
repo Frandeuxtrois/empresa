@@ -486,9 +486,60 @@ button:active {
 #contacto .container {
   position: relative;
   z-index: 1;
-  max-width: 800px;
+  max-width: 1280px;
   width: 96%;
   margin-top: 0;
+}
+.contacto-layout {
+  display: grid;
+  grid-template-columns: 1.3fr auto 1.7fr;
+  gap: 6rem;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+.contacto-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contacto-brand {
+  width: 100%;
+}
+.contacto-logo-canvas {
+  display: block;
+  width: calc(100% + 7rem);
+  margin-left: -3.5rem;
+  margin-right: -3.5rem;
+  height: clamp(20rem, 42vw, 38rem);
+  cursor: crosshair;
+}
+.contacto-divider {
+  width: 18px;
+  height: clamp(12rem, 30vw, 28rem);
+  background: #1a1a1a;
+  border-radius: 0;
+  justify-self: center;
+}
+body.dark-mode .contacto-logo {
+  color: #ffffff;
+}
+body.dark-mode .contacto-divider {
+  background: #ffffff;
+}
+@media (max-width: 768px) {
+  .contacto-layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .contacto-logo-canvas {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    height: clamp(12rem, 40vw, 18rem);
+  }
+  .contacto-divider {
+    display: none;
+  }
 }
 #contacto h2,
 #contacto p {
@@ -1115,11 +1166,23 @@ body.dark-mode .proceso-step p {
   color: #aaa;
   margin-bottom: 1.5rem;
 }
-.incluye-grid {
+.incluye-marquee {
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.incluye-track {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.6rem 1.2rem;
+  width: max-content;
+  animation: incluye-scroll 35s linear infinite;
+}
+.incluye-marquee:hover .incluye-track {
+  animation-play-state: paused;
+}
+@keyframes incluye-scroll {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
 }
 .incluye-item {
   font-size: 0.85rem;
@@ -1128,6 +1191,9 @@ body.dark-mode .proceso-step p {
   align-items: center;
   gap: 0.4rem;
   font-weight: 700;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  margin-right: 2.8rem;
 }
 .incluye-item::before {
   content: "✓";
@@ -1827,7 +1893,7 @@ body.dark-mode .plan-badge {
   background: var(--bg-form-card);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 6px;
-  padding: 40px;
+  padding: 32px 34px;
   width: 100%;
   box-shadow: 0 20px 40px rgba(10, 49, 67, 0.15);
   backdrop-filter: blur(10px);
@@ -1835,7 +1901,7 @@ body.dark-mode .plan-badge {
 
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 input[type=text],
@@ -1869,7 +1935,7 @@ input[type=tel]::placeholder {
 }
 
 textarea {
-  min-height: 160px;
+  min-height: 104px;
   resize: vertical;
 }
 

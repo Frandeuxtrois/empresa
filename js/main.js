@@ -258,8 +258,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
 
-    // Check saved preference
-    if (localStorage.getItem('theme') === 'dark') {
+    // Night-mode por defecto; solo "light" si el usuario lo eligió
+    if (localStorage.getItem('theme') === 'light') {
+        body.classList.remove('dark-mode');
+    } else {
         body.classList.add('dark-mode');
     }
 
@@ -341,4 +343,104 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.custom-select-trigger.open').forEach(t => t.classList.remove('open'));
         document.querySelectorAll('.custom-select-options.open').forEach(o => o.classList.remove('open'));
     });
+
+    // 10. AW PARTICLES — se dispersan con el mouse y se reagrupan (estilo Black & White)
+    (() => {
+        const canvas = document.getElementById('awParticles');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let dpr = 1;
+        const mouse = { x: -9999, y: -9999, radius: 55 };
+        const STEP = 1.5; // separación de muestreo (densidad) en px CSS — menor = más unidas
+        const SIZE = 2;   // tamaño de cada partícula en px CSS (mayor que STEP = se solapan)
+
+        const color = () => document.body.classList.contains('dark-mode') ? '#ffffff' : '#1a1a1a';
+
+        function build() {
+            const cssW = canvas.clientWidth, cssH = canvas.clientHeight;
+            if (!cssW || !cssH) return;
+            dpr = Math.min(window.devicePixelRatio || 1, 2);
+            canvas.width = Math.round(cssW * dpr);
+            canvas.height = Math.round(cssH * dpr);
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0); // dibujamos en px CSS, render a resolución retina
+            ctx.clearRect(0, 0, cssW, cssH);
+            ctx.fillStyle = '#fff';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            const fontSize = Math.min(cssH * 0.78, cssW * 0.5);
+            ctx.save();
+            ctx.translate(cssW / 2, cssH / 2);
+            ctx.scale(1, 1.3); // AW más alto que largo
+            ctx.font = `800 ${fontSize}px Montserrat, sans-serif`;
+            ctx.fillText('AW', 0, 0);
+            ctx.restore();
+            const dw = canvas.width, dh = canvas.height;
+            const data = ctx.getImageData(0, 0, dw, dh).data;
+            ctx.clearRect(0, 0, cssW, cssH);
+            particles = [];
+            const step = Math.max(1, Math.round(STEP * dpr)); // muestreo en px device
+            for (let y = 0; y < dh; y += step) {
+                for (let x = 0; x < dw; x += step) {
+                    if (data[(y * dw + x) * 4 + 3] > 128) {
+                        particles.push({ x: Math.random() * cssW, y: Math.random() * cssH, hx: x / dpr, hy: y / dpr, vx: 0, vy: 0 });
+                    }
+                }
+            }
+        }
+
+        function tick() {
+            const cssW = canvas.clientWidth, cssH = canvas.clientHeight;
+            ctx.clearRect(0, 0, cssW, cssH);
+            ctx.fillStyle = color();
+            for (const p of particles) {
+                const dx = p.x - mouse.x, dy = p.y - mouse.y;
+                const d2 = dx * dx + dy * dy;
+                if (d2 < mouse.radius * mouse.radius) {
+                    const d = Math.sqrt(d2) || 0.001;
+                    const f = (mouse.radius - d) / mouse.radius;
+                    p.vx += (dx / d) * f * 4;
+                    p.vy += (dy / d) * f * 4;
+                }
+                p.vx += (p.hx - p.x) * 0.025;
+                p.vy += (p.hy - p.y) * 0.025;
+                p.vx *= 0.86;
+                p.vy *= 0.86;
+                p.x += p.vx;
+                p.y += p.vy;
+                ctx.fillRect(p.x, p.y, SIZE, SIZE);
+            }
+        }
+
+        let rafId = null;
+        function loop() { tick(); rafId = requestAnimationFrame(loop); }
+        function play() { if (!rafId) loop(); }
+        function pause() { if (rafId) { cancelAnimationFrame(rafId); rafId = null; } }
+
+        canvas.addEventListener('mousemove', e => {
+            const r = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - r.left;
+            mouse.y = e.clientY - r.top;
+        });
+        canvas.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
+
+        const start = () => {
+            build();
+            // Solo anima cuando el AW está visible (ahorra CPU en el resto de la página)
+            if ('IntersectionObserver' in window) {
+                new IntersectionObserver((entries) => {
+                    entries[0].isIntersecting ? play() : pause();
+                }, { threshold: 0 }).observe(canvas);
+            } else {
+                play();
+            }
+        };
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(start);
+        } else {
+            window.addEventListener('load', start);
+        }
+        let rt;
+        window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(build, 200); });
+    })();
 });

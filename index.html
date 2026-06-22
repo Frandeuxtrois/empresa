@@ -167,7 +167,11 @@
     <script src="js/form.js" defer></script>
 </head>
 
-<body>
+<body class="dark-mode">
+    <script>
+        // Night-mode por defecto; respeta si el usuario eligió "light" (sin flash)
+        if (localStorage.getItem('theme') === 'light') document.body.classList.remove('dark-mode');
+    </script>
     <!-- Scroll Indicator -->
     <div class="scroll-indicator" id="scrollIndicator"></div>
     <!-- Nav overlay -->
@@ -272,14 +276,23 @@
 
                 <div class="incluye-wrapper fade-in">
                     <span class="incluye-titulo">En todos los proyectos incluimos</span>
-                    <div class="incluye-grid">
-                        <span class="incluye-item">Dominio .com.ar (1 año)</span>
-                        <span class="incluye-item">Hosting (1 año)</span>
-                        <span class="incluye-item">Certificado SSL</span>
-                        <span class="incluye-item">Diseño responsive</span>
-                        <span class="incluye-item">Botón de WhatsApp</span>
-                        <span class="incluye-item">Formulario de contacto</span>
-                        <span class="incluye-item">SEO optimizado</span>
+                    <div class="incluye-marquee">
+                        <div class="incluye-track">
+                            <span class="incluye-item">Dominio .com.ar (1 año)</span>
+                            <span class="incluye-item">Hosting (1 año)</span>
+                            <span class="incluye-item">Certificado SSL</span>
+                            <span class="incluye-item">Diseño responsive</span>
+                            <span class="incluye-item">Botón de WhatsApp</span>
+                            <span class="incluye-item">Formulario de contacto</span>
+                            <span class="incluye-item">SEO optimizado</span>
+                            <span class="incluye-item" aria-hidden="true">Dominio .com.ar (1 año)</span>
+                            <span class="incluye-item" aria-hidden="true">Hosting (1 año)</span>
+                            <span class="incluye-item" aria-hidden="true">Certificado SSL</span>
+                            <span class="incluye-item" aria-hidden="true">Diseño responsive</span>
+                            <span class="incluye-item" aria-hidden="true">Botón de WhatsApp</span>
+                            <span class="incluye-item" aria-hidden="true">Formulario de contacto</span>
+                            <span class="incluye-item" aria-hidden="true">SEO optimizado</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -522,7 +535,12 @@
             <div class="container">
                 <h2 class="fade-in">Contanos tu proyecto</h2>
                 <p class="contacto-subtitulo fade-in">Sin compromisos. Te respondemos en menos de 24 horas.</p>
-                <div class="form-container">
+                <div class="contacto-layout">
+                    <div class="contacto-brand fade-in">
+                        <canvas id="awParticles" class="contacto-logo-canvas" role="img" aria-label="AW"></canvas>
+                    </div>
+                    <span class="contacto-divider" aria-hidden="true"></span>
+                    <div class="form-container fade-in">
                     <form id="miFormulario">
                         <div class="form-row">
                             <div class="form-group">
@@ -554,6 +572,7 @@
                         </div>
                         <button type="submit" class="submit-btn">Enviar consulta</button>
                     </form>
+                    </div>
                 </div>
             </div>
         </section>

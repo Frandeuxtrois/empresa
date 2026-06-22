@@ -21,9 +21,58 @@
     .container {
         position: relative;
         z-index: 1;
+        max-width: 1280px;
     }
 
     h2, p { color: var(--text-on-contact); }
+
+    .contacto-layout {
+        display: grid;
+        grid-template-columns: 1.3fr auto 1.7fr;
+        gap: 6rem;
+        align-items: center;
+        margin-top: 1.5rem;
+    }
+
+    .contacto-brand {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .contacto-logo-canvas {
+        display: block;
+        width: calc(100% + 7rem);
+        margin-left: -3.5rem;
+        margin-right: -3.5rem;
+        height: clamp(20rem, 42vw, 38rem);
+        cursor: crosshair;
+    }
+
+    .contacto-divider {
+        width: 18px;
+        height: clamp(12rem, 30vw, 28rem);
+        background: var(--text-on-contact);
+        border-radius: 0;
+        justify-self: center;
+    }
+
+    @media (max-width: 768px) {
+        .contacto-layout {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        .contacto-logo-canvas {
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+            height: clamp(12rem, 40vw, 18rem);
+        }
+        .contacto-divider {
+            display: none;
+        }
+    }
 
     h2 {
         position: relative;

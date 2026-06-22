@@ -9,14 +9,14 @@
     background: var(--bg-form-card);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 6px;
-    padding: 40px;
+    padding: 26px 34px;
     width: 100%;
     box-shadow: 0 20px 40px rgba(10, 49, 67, 0.15);
     backdrop-filter: blur(10px);
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 input[type=text],
@@ -47,8 +47,8 @@ input[type=tel]::placeholder {
 }
 
 textarea {
-    min-height: 50px;
-    resize: horizontal;
+    min-height: 80px;
+    resize: vertical;
 }
 
 .submit-btn {
