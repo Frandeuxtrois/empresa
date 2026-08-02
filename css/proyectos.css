@@ -144,6 +144,14 @@
     filter: brightness(0.88);
 }
 
+/* Screenshot apaisado que entra entero, sin recorte */
+.proy-card__bg--contain,
+.proy-card[active] .proy-card__bg--contain {
+    object-fit: contain;
+    object-position: center;
+    background: #0a1a24;
+}
+
 /* Overlay degradado */
 .proy-card__content {
     position: absolute;
