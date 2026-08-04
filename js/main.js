@@ -443,4 +443,172 @@ document.addEventListener('DOMContentLoaded', () => {
         let rt;
         window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(build, 200); });
     })();
+
+    // 11. DEMO TURNERO — calendario estilo Lumina, sin funcionalidad real
+    (() => {
+        const grid = document.getElementById('tdCalGrid');
+        if (!grid) return;
+        const monthLabel = document.getElementById('tdCalMonth');
+        const prevBtn = document.getElementById('tdCalPrev');
+        const nextBtn = document.getElementById('tdCalNext');
+        const slotsEl = document.getElementById('tdSlots');
+        const slotsStep = document.getElementById('tdSlotsStep');
+        const reserveBtn = document.getElementById('tdReserve');
+        const bodyEl = document.getElementById('tdBody');
+        const successEl = document.getElementById('tdSuccess');
+        const successDetail = document.getElementById('tdSuccessDetail');
+        const againBtn = document.getElementById('tdAgain');
+        const bookedStrip = document.getElementById('tdBooked');
+        const bookedDetail = document.getElementById('tdBookedDetail');
+        const cancelBtn = document.getElementById('tdCancel');
+
+        const times = ['09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30'];
+        const monthsEs = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+        const dowEs = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+        const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+
+        const today = new Date(); today.setHours(0, 0, 0, 0);
+        let viewYear = today.getFullYear();
+        let viewMonth = today.getMonth();
+        let selKey = null, selLabel = null, selTime = null;
+
+        // Turno reservado persistido en la sesión (localStorage)
+        const STORE = 'awd_demo_turno';
+        const loadBooking = () => { try { return JSON.parse(localStorage.getItem(STORE)); } catch { return null; } };
+        const saveBooking = (b) => { try { localStorage.setItem(STORE, JSON.stringify(b)); } catch {} };
+        const clearBooking = () => { try { localStorage.removeItem(STORE); } catch {} };
+        let booking = loadBooking();
+
+        // disponibilidad fake pero estable: cerrado domingos, ~75% de los días hábiles futuros
+        const isAvailable = (d) => d >= today && d.getDay() !== 0 && ((d.getDate() * 7 + d.getMonth() * 3) % 6) !== 0;
+        const occupied = (seed, ti) => ((seed * 7 + ti * 3 + 5) % 4) === 0;
+        const updateReserve = () => { reserveBtn.disabled = !(selKey && selTime); };
+
+        const dayKeyOf = (d) => `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+
+        const buildSlots = (d) => {
+            const seed = d.getDate() + d.getMonth() * 31;
+            const dKey = dayKeyOf(d);
+            let html = '';
+            times.forEach((t, ti) => {
+                const isMine = booking && booking.key === dKey && booking.time === t;
+                if (isMine) {
+                    html += `<button class="td-slot td-slot--mine" data-time="${t}" disabled><span class="td-check-mini">✓</span>${t}<span class="td-slot-tag">Turno</span></button>`;
+                    return;
+                }
+                const occ = occupied(seed, ti);
+                html += `<button class="td-slot${occ ? ' td-slot--occ' : ''}" data-time="${t}"${occ ? ' disabled' : ''}>${occ ? '<span class="td-x">✕</span>' : ''}${t}</button>`;
+            });
+            slotsEl.innerHTML = html;
+            slotsStep.hidden = false;
+        };
+
+        const render = () => {
+            monthLabel.textContent = `${monthsEs[viewMonth]} ${viewYear}`;
+            const first = new Date(viewYear, viewMonth, 1);
+            const startCol = (first.getDay() + 6) % 7; // lunes primero
+            const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+            let html = '';
+            for (let i = 0; i < startCol; i++) html += '<span></span>';
+            for (let d = 1; d <= daysInMonth; d++) {
+                const dateObj = new Date(viewYear, viewMonth, d);
+                const key = `${viewYear}-${viewMonth}-${d}`;
+                const avail = isAvailable(dateObj);
+                const isToday = dateObj.getTime() === today.getTime();
+                const isSel = key === selKey;
+                const isMine = booking && booking.key === key;
+                let cls = 'td-cal-day';
+                if (isMine) cls += ' td-cal-day--mine';
+                if (isSel) cls += ' td-cal-day--sel';
+                else if (avail) cls += ' td-cal-day--avail';
+                const badge = isMine ? '<span class="td-cal-mine">✓</span>' : (isToday && !isSel ? '<span class="td-cal-dot"></span>' : '');
+                html += `<button class="${cls}" data-key="${key}" data-y="${viewYear}" data-m="${viewMonth}" data-d="${d}"${avail || isSel || isMine ? '' : ' disabled'}>${d}${badge}</button>`;
+            }
+            grid.innerHTML = html;
+        };
+
+        const syncBooking = () => {
+            if (booking) {
+                bookedStrip.hidden = false;
+                bookedDetail.textContent = `${booking.label} · ${booking.time} hs`;
+                reserveBtn.hidden = true;
+            } else {
+                bookedStrip.hidden = true;
+                reserveBtn.hidden = false;
+            }
+        };
+
+        grid.addEventListener('click', (e) => {
+            const btn = e.target.closest('.td-cal-day');
+            if (!btn || btn.disabled) return;
+            const dateObj = new Date(+btn.dataset.y, +btn.dataset.m, +btn.dataset.d);
+            selKey = btn.dataset.key;
+            selLabel = `${cap(dowEs[dateObj.getDay()])} ${dateObj.getDate()} de ${monthsEs[dateObj.getMonth()]}`;
+            selTime = null;
+            render();
+            buildSlots(dateObj);
+            updateReserve();
+        });
+
+        prevBtn.addEventListener('click', () => { if (--viewMonth < 0) { viewMonth = 11; viewYear--; } render(); });
+        nextBtn.addEventListener('click', () => { if (++viewMonth > 11) { viewMonth = 0; viewYear++; } render(); });
+
+        slotsEl.addEventListener('click', (e) => {
+            const btn = e.target.closest('.td-slot');
+            if (!btn || btn.disabled) return;
+            slotsEl.querySelectorAll('.td-slot').forEach(b => b.classList.remove('td-slot--sel'));
+            btn.classList.add('td-slot--sel');
+            selTime = btn.dataset.time;
+            updateReserve();
+        });
+
+        reserveBtn.addEventListener('click', () => {
+            if (reserveBtn.disabled) return;
+            booking = { key: selKey, label: selLabel, time: selTime };
+            saveBooking(booking);
+            successDetail.textContent = `${selLabel} · ${selTime} hs`;
+            successEl.hidden = false;
+            const d = new Date(+selKey.split('-')[0], +selKey.split('-')[1], +selKey.split('-')[2]);
+            render();
+            buildSlots(d);
+            syncBooking();
+        });
+
+        const cancelBooking = () => {
+            booking = null;
+            clearBooking();
+            selKey = null; selLabel = null; selTime = null;
+            successEl.hidden = true;
+            slotsStep.hidden = true;
+            render();
+            syncBooking();
+            updateReserve();
+        };
+
+        againBtn.addEventListener('click', () => {
+            // "Reservar otro": salgo del cartel pero dejo el turno marcado en el calendario
+            successEl.hidden = true;
+            selKey = booking ? booking.key : null;
+            selTime = null;
+            slotsStep.hidden = true;
+            render();
+            syncBooking();
+            updateReserve();
+        });
+
+        cancelBtn.addEventListener('click', cancelBooking);
+
+        // Init: si hay un turno guardado, lo restauro marcado en el calendario
+        if (booking) {
+            const parts = booking.key.split('-');
+            viewYear = +parts[0]; viewMonth = +parts[1];
+            selKey = booking.key;
+            render();
+            buildSlots(new Date(+parts[0], +parts[1], +parts[2]));
+        } else {
+            render();
+        }
+        syncBooking();
+        updateReserve();
+    })();
 });

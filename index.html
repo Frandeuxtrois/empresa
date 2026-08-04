@@ -436,12 +436,129 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="swiper-slide">
+                            <div class="plan-card plan-turnero">
+                                <div class="plan-card-header">
+                                    <span class="plan-badge plan-badge-turnero">🗓️ Producto</span>
+                                    <span class="plan-nombre">Turnos AWD</span>
+                                    <span class="plan-ideal">Reservas online para tu negocio</span>
+                                    <div class="plan-precio"><strong>A convenir</strong></div>
+                                </div>
+                                <div class="plan-card-body">
+                                    <ul>
+                                        <li>Reservas online 24/7</li>
+                                        <li>Confirmación y recordatorios por mail</li>
+                                        <li>Sincronización con Google Calendar</li>
+                                        <li>Panel de gestión de turnos</li>
+                                        <li>Multi-servicio y profesionales</li>
+                                        <li>Cancelación y reprogramación</li>
+                                    </ul>
+                                    <p class="plan-ideal-tag">Suelto o integrado a tu web · Solo abono mensual</p>
+                                    <a href="#turnero" class="btn-plan">Ver demo</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-pagination"></div>
                 </div>
 
+            </div>
+        </section>
+
+        <!-- ======== SECCIÓN TURNOS AWD (demo) ======== -->
+        <section id="turnero">
+            <div class="container">
+              <div class="turnero-layout">
+                <div class="turnero-pitch fade-in">
+                    <span class="turnero-eyebrow">Producto AWD</span>
+                    <h2>Turnos AWD</h2>
+                    <p class="turnero-sub">Sistema de reservas online para tu negocio. Tus clientes eligen día y horario en segundos, y vos recibís cada turno confirmado — sin llamadas ni idas y vueltas por WhatsApp.</p>
+                    <ul class="turnero-feats">
+                        <li><i class="fas fa-clock"></i>Agenda abierta 24/7, sin atender el teléfono</li>
+                        <li><i class="fas fa-envelope-circle-check"></i>Confirmación y recordatorio automático por mail</li>
+                        <li><i class="fas fa-calendar-check"></i>Se integra con Google Calendar</li>
+                        <li><i class="fas fa-sliders"></i>Vos definís horarios, servicios y disponibilidad</li>
+                    </ul>
+                    <div class="turnero-modes">
+                        <div class="turnero-mode">
+                            <i class="fas fa-cube"></i>
+                            <div>
+                                <span class="turnero-mode-title">Independiente</span>
+                                <span class="turnero-mode-desc">Solo el turnero, conectado a tu negocio actual.</span>
+                            </div>
+                        </div>
+                        <div class="turnero-mode">
+                            <i class="fas fa-layer-group"></i>
+                            <div>
+                                <span class="turnero-mode-title">Con tu página <span class="turnero-mode-plus">+ plus</span></span>
+                                <span class="turnero-mode-desc">Integrado a tu web, desde el plan Landing Page.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="turnero-cta" href="#contacto">Quiero mi turnero <i class="fas fa-arrow-right"></i></a>
+                    <p class="turnero-try">Probá la demo interactiva, sin registrarte.</p>
+                </div>
+                <div class="turnero-demo fade-in">
+                    <div class="td-topbar">
+                        <div class="td-brand">
+                            <span class="td-brand-name">Estética Integral</span>
+                        </div>
+                        <span class="td-demo-badge">DEMO</span>
+                    </div>
+                    <div class="td-body" id="tdBody">
+                        <div class="td-cal">
+                            <p class="td-cal-title">Paso 1: Fecha y Hora</p>
+                            <p class="td-cal-subtitle">Seleccioná el momento ideal para tu turno.</p>
+                            <div class="td-cal-head">
+                                <span class="td-cal-month" id="tdCalMonth"></span>
+                                <div class="td-cal-nav">
+                                    <button class="td-cal-arrow" id="tdCalPrev" aria-label="Mes anterior">‹</button>
+                                    <button class="td-cal-arrow" id="tdCalNext" aria-label="Mes siguiente">›</button>
+                                </div>
+                            </div>
+                            <div class="td-cal-weekdays">
+                                <span>LU</span><span>MA</span><span>MI</span><span>JU</span><span>VI</span><span>SA</span><span>DO</span>
+                            </div>
+                            <div class="td-cal-grid" id="tdCalGrid"></div>
+                            <div class="td-cal-legend">
+                                <span class="td-leg"><i class="td-leg-dot td-leg-avail"></i>Con turnos disponibles</span>
+                                <span class="td-leg"><i class="td-leg-dot td-leg-none"></i>Sin disponibilidad</span>
+                            </div>
+                        </div>
+                        <div class="td-step td-step-slots" id="tdSlotsStep" hidden>
+                            <span class="td-step-label">Horarios disponibles</span>
+                            <div class="td-slots" id="tdSlots"></div>
+                        </div>
+                        <button class="td-reserve" id="tdReserve" disabled>Reservar turno</button>
+                        <div class="td-booked" id="tdBooked" hidden>
+                            <span class="td-booked-info"><span class="td-booked-check">✓</span><span class="td-booked-label">Tu turno:</span> <strong id="tdBookedDetail"></strong></span>
+                            <button class="td-cancel" id="tdCancel">Cancelar turno</button>
+                        </div>
+                        <p class="td-note">Demo interactiva — el turno se guarda solo en tu navegador.</p>
+                    </div>
+                    <div class="td-success" id="tdSuccess" hidden>
+                        <div class="td-success-card">
+                            <div class="td-check">✓</div>
+                            <h3>¡Turno reservado!</h3>
+                            <p class="td-success-detail" id="tdSuccessDetail"></p>
+                            <p class="td-success-mail">✉️ Te enviamos un mail con los detalles del turno.</p>
+                            <button class="td-gcal" id="tdGcal">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                Agregar a Google Calendar
+                            </button>
+                            <button class="td-again" id="tdAgain">Listo</button>
+                        </div>
+                    </div>
+                </div>
+              </div>
             </div>
         </section>
 
@@ -459,7 +576,7 @@
                 <div class="proy-track" id="proyTrack">
 
                     <article class="proy-card" active>
-                        <img class="proy-card__bg proy-card__bg--contain" src="assets/portfolio.jpg" alt="Portfolio Personal">
+                        <img class="proy-card__bg" src="assets/portfolio.jpg" alt="Portfolio Personal">
                         <div class="proy-card__content">
                             <span class="proy-tag">Portafolio</span>
                             <h3 class="proy-card__title">Portfolio Personal</h3>
