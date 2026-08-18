@@ -476,8 +476,8 @@ body.dark-mode #turnero {
 }
 .turnero-layout {
   display: grid;
-  grid-template-columns: 1fr 600px;
-  gap: 4rem;
+  grid-template-columns: minmax(0, 1fr) 600px;
+  gap: 3.5rem;
   align-items: center;
 }
 .turnero-pitch {
@@ -632,7 +632,7 @@ body.dark-mode #turnero .turnero-pitch h2::after {
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
 }
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .turnero-layout {
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -641,6 +641,10 @@ body.dark-mode #turnero .turnero-pitch h2::after {
   .turnero-pitch {
     max-width: 600px;
     width: 100%;
+  }
+  .turnero-demo {
+    width: 100%;
+    max-width: 600px;
   }
 }
 .td-topbar {
@@ -698,6 +702,10 @@ body.dark-mode #turnero .turnero-pitch h2::after {
 @media (max-width: 620px) {
   .td-body {
     grid-template-columns: 1fr;
+  }
+  .td-cal,
+  .td-step-slots {
+    grid-column: 1 / -1;
   }
 }
 .td-cal-title {
